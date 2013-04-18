@@ -602,6 +602,36 @@ void Maratis::loadGamePlugin(void)
 		getGlobalFilename(gameFile, window->getWorkingDirectory(), "Game.so");
 	#endif
 
+	// try to load any other plugins in the game directory first
+	// as the game may expect these to be loaded
+	vector<string> files;
+	readDirectory(window->getWorkingDirectory(), &files);
+	for(vector<string>::iterator iFile = files.begin();
+		iFile != files.end();
+		iFile++)
+	{
+		if(*iFile == gameFile)
+			continue;
+
+		#ifdef WIN32
+			if(iFile->find(".dll") != string::npos)
+		#elif __APPLE__
+			if(iFile->find(".dylib") != string::npos)
+		#elif linux
+			if(iFile->find(".so") != string::npos)
+		#endif
+			{
+				char pluginPath[256];
+
+				getGlobalFilename(pluginPath, window->getWorkingDirectory(), iFile->c_str());
+				MPlugin* plugin = new MPlugin();
+				plugin->load(pluginPath);
+				m_plugins.push_back(plugin);
+			}
+	}
+
+	// After all other plugins are loaded, we can load the game
+	// as we assume all prerequisites are loaded
 	SAFE_DELETE(m_gamePlugin);
 	m_gamePlugin = new MPlugin();
 	m_gamePlugin->load(gameFile);

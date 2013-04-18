@@ -70,12 +70,6 @@ void MPlugin::load(const char * filename)
 		return;
 
     FunctionPtr function = reinterpret_cast<FunctionPtr>(GetProcAddress(m_library, "StartPlugin"));
-    if(! function)
-		return;
-
-	m_filename = filename;
-    function();
-	
 #else
 	
 	m_library = dlopen(filename, RTLD_LAZY);
@@ -83,11 +77,11 @@ void MPlugin::load(const char * filename)
 		return;
 	
 	FunctionPtr function = (FunctionPtr)dlsym(m_library, "StartPlugin");
+#endif
+
 	if(! function)
 		return;
 	
 	m_filename = filename;
     function();
-
-#endif
 }
