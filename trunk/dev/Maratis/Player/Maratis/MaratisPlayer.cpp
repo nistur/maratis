@@ -246,7 +246,10 @@ void MaratisPlayer::loadGamePlugin(void)
 				getGlobalFilename(pluginPath, window->getWorkingDirectory(), iFile->c_str());
 				MPlugin* plugin = new MPlugin();
 				plugin->load(pluginPath);
-				m_plugins.push_back(plugin);
+				if(plugin->getFilename())
+					m_plugins.push_back(plugin);
+				else
+					SAFE_DELETE(plugin);
 			}
 	}
 
