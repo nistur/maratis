@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="MaratisCommon" />
+		<Option pch_mode="2" />
+		<Option compiler="cygwin" />
+		<Build>
+			<Target title="Debug">
+				<Option output="..\..\build\$(platform)\release\Maratis\Common\libMaratisCommon" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj\Debug\" />
+				<Option type="2" />
+				<Option compiler="cygwin" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-DWIN32" />
+					<Add directory="..\..\Maratis\Common" />
+					<Add directory="..\..\MSDK\MCore\Includes" />
+					<Add directory="..\..\MSDK\MGui\Includes" />
+					<Add directory="..\..\MSDK\MEngine\Includes" />
+				</Compiler>
+				<Environment>
+					<Variable name="platform" value="cygwin" />
+				</Environment>
+			</Target>
+		</Build>
+		<Unit filename="..\..\Maratis\Common\MBehaviors\MBFollow.cpp" />
+		<Unit filename="..\..\Maratis\Common\MBehaviors\MBFollow.h" />
+		<Unit filename="..\..\Maratis\Common\MBehaviors\MBLookAt.cpp" />
+		<Unit filename="..\..\Maratis\Common\MBehaviors\MBLookAt.h" />
+		<Unit filename="..\..\Maratis\Common\MContexts\MALContext.cpp" />
+		<Unit filename="..\..\Maratis\Common\MContexts\MALContext.h" />
+		<Unit filename="..\..\Maratis\Common\MContexts\MBulletContext.cpp" />
+		<Unit filename="..\..\Maratis\Common\MContexts\MBulletContext.h" />
+		<Unit filename="..\..\Maratis\Common\MContexts\MGLContext.cpp" />
+		<Unit filename="..\..\Maratis\Common\MContexts\MGLContext.h" />
+		<Unit filename="..\..\Maratis\Common\MContexts\MWinContext.cpp" />
+		<Unit filename="..\..\Maratis\Common\MContexts\MWinContext.h" />
+		<Unit filename="..\..\Maratis\Common\MFileManager\MLevelLoad.cpp" />
+		<Unit filename="..\..\Maratis\Common\MFileManager\MLevelLoad.h" />
+		<Unit filename="..\..\Maratis\Common\MFileManager\MLevelSave.cpp" />
+		<Unit filename="..\..\Maratis\Common\MFileManager\MLevelSave.h" />
+		<Unit filename="..\..\Maratis\Common\MFileManager\MMeshLoad.cpp" />
+		<Unit filename="..\..\Maratis\Common\MFileManager\MMeshLoad.h" />
+		<Unit filename="..\..\Maratis\Common\MFileManager\MPackageManagerNPK.cpp" />
+		<Unit filename="..\..\Maratis\Common\MFileManager\MPackageManagerNPK.h" />
+		<Unit filename="..\..\Maratis\Common\MInput\MInput.cpp" />
+		<Unit filename="..\..\Maratis\Common\MInput\MInput.h" />
+		<Unit filename="..\..\Maratis\Common\MLoaders\MBinFontLoader.cpp" />
+		<Unit filename="..\..\Maratis\Common\MLoaders\MBinFontLoader.h" />
+		<Unit filename="..\..\Maratis\Common\MLoaders\MBinMeshLoader.cpp" />
+		<Unit filename="..\..\Maratis\Common\MLoaders\MBinMeshLoader.h" />
+		<Unit filename="..\..\Maratis\Common\MLoaders\MDevILLoader.cpp" />
+		<Unit filename="..\..\Maratis\Common\MLoaders\MDevILLoader.h" />
+		<Unit filename="..\..\Maratis\Common\MLoaders\MFreetypeLoader.cpp" />
+		<Unit filename="..\..\Maratis\Common\MLoaders\MFreetypeLoader.h" />
+		<Unit filename="..\..\Maratis\Common\MLoaders\MSndFileLoader.cpp" />
+		<Unit filename="..\..\Maratis\Common\MLoaders\MSndFileLoader.h" />
+		<Unit filename="..\..\Maratis\Common\MPlugin\MPlugin.cpp" />
+		<Unit filename="..\..\Maratis\Common\MPlugin\MPlugin.h" />
+		<Unit filename="..\..\Maratis\Common\MProject\MProject.cpp" />
+		<Unit filename="..\..\Maratis\Common\MProject\MProject.h" />
+		<Unit filename="..\..\Maratis\Common\MRenderers\MFixedRenderer.cpp" />
+		<Unit filename="..\..\Maratis\Common\MRenderers\MFixedRenderer.h" />
+		<Unit filename="..\..\Maratis\Common\MRenderers\MStandardRenderer.cpp" />
+		<Unit filename="..\..\Maratis\Common\MRenderers\MStandardRenderer.h" />
+		<Unit filename="..\..\Maratis\Common\MRenderers\MStandardShaders.h" />
+		<Unit filename="..\..\Maratis\Common\MScript\MScript.cpp" />
+		<Unit filename="..\..\Maratis\Common\MScript\MScript.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

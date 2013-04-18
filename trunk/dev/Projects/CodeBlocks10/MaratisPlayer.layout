@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="..\..\MSDK\MEngine\Includes\MLog.h" open="1" top="0" tabpos="3">
+		<Cursor position="3184" topLine="35" />
+	</File>
+	<File name="..\..\MSDK\MEngine\Sources\MLog.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="2616" topLine="58" />
+	</File>
+	<File name="..\..\Maratis\Player\Maratis\MaratisPlayer.h" open="1" top="0" tabpos="2">
+		<Cursor position="1342" topLine="22" />
+	</File>
+	<File name="..\..\Maratis\Player\main.cpp" open="1" top="1" tabpos="1">
+		<Cursor position="2892" topLine="97" />
+	</File>
+</CodeBlocks_layout_file>

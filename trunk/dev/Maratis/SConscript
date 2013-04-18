@@ -1,0 +1,48 @@
+# coding: utf-8
+# maratis build Sconscript
+#
+# $LastChangedDate: 2011-09-27 19:11:42 +0100 (Tue, 27 Sep 2011) $
+# $LastChangedBy: anael.seghezzi@gmail.com $
+
+
+import os,sys
+
+Import('env')
+
+
+# build common
+SConscript( 'Common/SConscript', exports='env' )
+
+# build Editor
+maratis_editor = SConscript( 'Editor/SConscript', exports='env' )
+
+# build Player
+maratis_player = SConscript( 'Player/SConscript', exports='env' )
+
+
+
+# ####### #
+# Install #
+# ####### #
+
+# install to prod dir
+finaldir = os.path.join(env['proddir'],'Maratis','Bin')
+env.Install(finaldir, maratis_editor)
+env.Install(finaldir, maratis_player)
+env.Install(finaldir, '#Data/Editor/font')
+env.Install(finaldir, '#Data/Editor/gui')
+
+# Mac specific: app bundle creation and installation
+if sys.platform == 'darwin':
+    maratis_editor = env.MakeBundle ( 'Maratis.app', 
+                                      maratis_editor,
+                                      typecode = 'APPL',
+                                      resources = ['#Data/Editor/font','#Data/Editor/gui'])
+    env.InstallBundle(finaldir, maratis_editor)
+    maratis_player = env.MakeBundle ( 'MaratisPlayer.app', 
+                                      maratis_player,
+                                      typecode = 'APPL',
+                                      resources = [])
+    env.InstallBundle(finaldir, maratis_player)
+
+

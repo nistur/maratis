@@ -1,0 +1,50 @@
+# coding: utf-8
+# MSDK build Sconscript
+#
+# $LastChangedDate: 2012-11-16 01:08:02 +0000 (Fri, 16 Nov 2012) $
+# $LastChangedBy: anael.seghezzi@gmail.com $
+
+
+import os,sys
+
+Import('env')
+
+
+
+# build MGui
+mgui_lib = SConscript( 'MGui/SConscript', exports='env' )
+
+# build MCore
+mcore_lib = SConscript( 'MCore/SConscript', exports='env' )
+
+# build MEngine
+mengine_lib = SConscript( 'MEngine/SConscript', exports='env' )
+
+
+
+
+# ####### #
+# install #
+# ####### #
+
+# install to prod dir
+
+# When MGui is built as a shared library
+#files = [mcore_lib, mengine_lib, mgui_lib]
+
+# When MGui is built as a static library
+files = [mcore_lib, mengine_lib]
+
+import thirdparty
+files.append(thirdparty.libsndfile.getLibSndFileLibs(env))
+files.append(thirdparty.openal.getOpenALLibs(env))
+inst_msdk = env.Install(os.path.join(env['proddir'],'MSDK'), files)
+inst_maratis = env.Install(os.path.join(env['proddir'],'Maratis','Bin'), files)
+# examples: manualuse
+inst_examples = env.Install(os.path.join(env['proddir'],'Examples','ManualUse'), files)
+
+# mac specific
+if sys.platform == 'darwin':
+    inst_maratis_editor = env.Install(os.path.join(env['proddir'],'Maratis','Bin','Maratis.app/Contents/MacOS'), files)
+    inst_maratis_player = env.Install(os.path.join(env['proddir'],'Maratis','Bin','MaratisPlayer.app/Contents/MacOS'), files)
+    inst_examples = env.Install(os.path.join(env['proddir'],'Examples','ManualUse','ManualUse.app','Contents','MacOS'), files)

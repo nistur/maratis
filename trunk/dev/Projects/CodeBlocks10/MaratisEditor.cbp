@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="MaratisEditor" />
+		<Option pch_mode="2" />
+		<Option compiler="cygwin" />
+		<Build>
+			<Target title="Debug">
+				<Option output="..\..\prod\$(platform)\release\Maratis\Bin\MaratisEditor" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="..\..\prod\$(platform)\release\Maratis\Bin" />
+				<Option object_output="obj\Debug\" />
+				<Option type="1" />
+				<Option compiler="cygwin" />
+				<Compiler>
+					<Add option="-Os" />
+					<Add option="-g" />
+					<Add option="-mwin32" />
+					<Add option="-DWIN32" />
+					<Add option="-DMENGINE_DLL" />
+					<Add option="-DNDEBUG" />
+					<Add directory="..\..\MSDK\MEngine\Includes" />
+					<Add directory="..\..\MSDK\MCore\Includes" />
+					<Add directory="..\..\MSDK\MGui\Includes" />
+					<Add directory="..\..\Maratis\Common" />
+					<Add directory="..\..\..\..\3rdparty\bullet" />
+					<Add directory="..\..\..\..\3rdparty\lua" />
+					<Add directory="..\..\..\..\3rdparty\tinyxml" />
+					<Add directory="..\..\..\..\3rdparty\glee" />
+				</Compiler>
+				<Linker>
+					<Add option="-Wl,-rpath=@loader_path/." />
+					<Add option="-L../../build/$(platform)/release/Maratis/Common" />
+					<Add option="-lMaratisCommon" />
+					<Add option="-L../../build/$(platform)/release/MSDK/MEngine" />
+					<Add option="-lMEngine" />
+					<Add option="-L../../build/$(platform)/release/MSDK/MCore" />
+					<Add option="-lMCore" />
+					<Add option="-L../../build/$(platform)/release/MSDK/MGui" />
+					<Add option="-lMGui" />
+					<Add option="-L../../build/$(platform)/release/3rdparty/npk" />
+					<Add option="-lnpk_dev" />
+					<Add option="-L../../build/$(platform)/release/3rdparty/lua" />
+					<Add option="-llua" />
+					<Add option="-L../../build/$(platform)/release/3rdparty/bullet" />
+					<Add option="-lbullet" />
+					<Add option="-lopenal" />
+					<Add option="-L../../build/$(platform)/release/3rdparty/glee" />
+					<Add option="-lglee" />
+					<Add option="-L../../build/$(platform)/release/3rdparty/devil" />
+					<Add option="-lil" />
+					<Add option="-L../../build/$(platform)/release/3rdparty/tinyxml" />
+					<Add option="-ltinyxml" />
+					<Add option="-lpng" />
+					<Add option="-ljpeg" />
+					<Add option="-L../../build/$(platform)/release/3rdparty/zlib" />
+					<Add option="-lzlib" />
+					<Add option="-lfreetype -lsndfile -lopengl32 -lUser32 -lShell32 -lGdi32 -lComdlg32 -lWinmm" />
+				</Linker>
+				<Environment>
+					<Variable name="platform" value="cygwin" />
+				</Environment>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="..\..\MSDK\MEngine\Includes\MLog.h" />
+		<Unit filename="..\..\MSDK\MGui\Sources\MGui.cpp" />
+		<Unit filename="..\..\MSDK\MGui\Sources\MGuiTextureFont.cpp" />
+		<Unit filename="..\..\Maratis\Editor\MBins\MFontBin.cpp" />
+		<Unit filename="..\..\Maratis\Editor\MBins\MFontBin.h" />
+		<Unit filename="..\..\Maratis\Editor\MBins\MMeshBin.cpp" />
+		<Unit filename="..\..\Maratis\Editor\MBins\MMeshBin.h" />
+		<Unit filename="..\..\Maratis\Editor\MFilesUpdate\MFilesUpdate.cpp" />
+		<Unit filename="..\..\Maratis\Editor\MFilesUpdate\MFilesUpdate.h" />
+		<Unit filename="..\..\Maratis\Editor\MPublish\MPublishEvent.cpp" />
+		<Unit filename="..\..\Maratis\Editor\MPublish\MPublishEvent.h" />
+		<Unit filename="..\..\Maratis\Editor\MPublish\MPublisher.cpp" />
+		<Unit filename="..\..\Maratis\Editor\MPublish\MPublisher.h" />
+		<Unit filename="..\..\Maratis\Editor\MRenderArray\MRenderArray.cpp" />
+		<Unit filename="..\..\Maratis\Editor\MRenderArray\MRenderArray.h" />
+		<Unit filename="..\..\Maratis\Editor\Maratis\Maratis.cpp" />
+		<Unit filename="..\..\Maratis\Editor\Maratis\Maratis.h" />
+		<Unit filename="..\..\Maratis\Editor\Maratis\MaratisUI.cpp" />
+		<Unit filename="..\..\Maratis\Editor\Maratis\MaratisUI.h" />
+		<Unit filename="..\..\Maratis\Editor\main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

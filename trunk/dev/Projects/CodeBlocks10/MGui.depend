@@ -1,0 +1,203 @@
+# depslib dependency file v1.0
+1351454139 source:g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\sources\mgui.cpp
+	<MLoaders/MDevILLoader.h>
+	"../Includes/MGui.h"
+	<MGui.h>
+
+1346868934 g:\perso\devel\maratis\maratis\trunk\dev\maratis\common\mloaders\mdevilloader.h
+
+1346868941 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\mgui.h
+	<stdio.h>
+	<vector>
+	<string>
+	<MCore.h>
+	"MWindow.h"
+	"MGuiEvents.h"
+	"MGuiTextureFont.h"
+	"MGui2d.h"
+	"MGuiSlide.h"
+	"MGuiWindow.h"
+	"MGuiButton.h"
+	"MGuiMenu.h"
+	"MGuiText.h"
+	"MGuiImage.h"
+	"MGuiEditText.h"
+	"MGuiFileBrowser.h"
+
+1351364527 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mcore.h
+	"MUtils.h"
+	"MString.h"
+	"MFile.h"
+	"MStdFile.h"
+	"MFileTools.h"
+	"MMaths.h"
+	"MSystemContext.h"
+	"MInputContext.h"
+	"MRenderingContext.h"
+	"MSoundContext.h"
+	"MPhysicsContext.h"
+	"MScriptContext.h"
+	"MImage.h"
+	"MSound.h"
+	"MStringTools.h"
+	"MDataManager.h"
+	"MDataLoader.h"
+
+1346868944 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mutils.h
+	<map>
+	<vector>
+	<string>
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<stdarg.h>
+
+1350677967 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mstring.h
+
+1346872272 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mfile.h
+	<stdarg.h>
+
+1346868944 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mstdfile.h
+
+1346868944 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mfiletools.h
+
+1346868944 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mmaths.h
+	<math.h>
+	"MVector2.h"
+	"MVector3.h"
+	"MVector4.h"
+	"MColor.h"
+	"MMatrix4x4.h"
+	"MQuaternion.h"
+
+1346868944 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mvector2.h
+
+1346868944 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mvector3.h
+
+1346868944 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mvector4.h
+
+1346868944 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mcolor.h
+
+1346868944 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mmatrix4x4.h
+
+1346868944 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mquaternion.h
+
+1346868944 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\msystemcontext.h
+
+1346868944 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\minputcontext.h
+
+1346868944 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mrenderingcontext.h
+
+1346868944 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\msoundcontext.h
+
+1346868944 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mphysicscontext.h
+
+1346868944 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mscriptcontext.h
+
+1346868944 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mimage.h
+
+1346868944 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\msound.h
+
+1346868944 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mstringtools.h
+
+1346868944 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mdatamanager.h
+
+1346868944 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mdataloader.h
+
+1346868941 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\mwindow.h
+	<MWinEvents.h>
+	<MMouse.h>
+	<MKeyboard.h>
+	<MJoystick.h>
+	"WIN32/MWin32Window.h"
+	"COCOA/MCocoaWindow.h"
+	"X11/MX11Window.h"
+
+1346868941 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\mwinevents.h
+
+1346868941 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\mmouse.h
+
+1346868941 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\mkeyboard.h
+
+1346868941 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\mjoystick.h
+
+1346868941 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\win32\mwin32window.h
+	<w32api.h>
+	<MCore.h>
+	<windows.h>
+	<list>
+
+1350677967 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\cocoa\mcocoawindow.h
+	<MCore.h>
+	<list>
+
+1346868941 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\x11\mx11window.h
+	<X11/X.h>
+	<X11/Xlib.h>
+	<X11/keysym.h>
+	<list>
+	<string>
+
+1346868941 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\mguievents.h
+
+1346868941 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\mguitexturefont.h
+
+1346868941 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\mgui2d.h
+
+1346868941 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\mguislide.h
+
+1346868941 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\mguiwindow.h
+
+1346868941 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\mguibutton.h
+
+1346868941 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\mguimenu.h
+
+1346868941 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\mguitext.h
+
+1346868941 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\mguiimage.h
+
+1346868941 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\mguiedittext.h
+
+1346868941 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\mguifilebrowser.h
+
+1346868941 source:g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\sources\mgui2d.cpp
+	"../Includes/MGui.h"
+
+1346868941 source:g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\sources\mguibutton.cpp
+	"../Includes/MGui.h"
+
+1350677967 source:g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\sources\mguiedittext.cpp
+	<stdio.h>
+	"../Includes/MGui.h"
+
+1346868941 source:g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\sources\mguifilebrowser.cpp
+	"../Includes/MGui.h"
+
+1346868941 source:g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\sources\mguiimage.cpp
+	"../Includes/MGui.h"
+
+1346868941 source:g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\sources\mguimenu.cpp
+	"../Includes/MGui.h"
+
+1346868941 source:g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\sources\mguislide.cpp
+	"../Includes/MGui.h"
+
+1350677967 source:g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\sources\mguitext.cpp
+	"../Includes/MGui.h"
+
+1351370352 source:g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\sources\mguitexturefont.cpp
+	<stdio.h>
+	"../Includes/MGui.h"
+
+1346868941 source:g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\sources\mguiwindow.cpp
+	"../Includes/MGui.h"
+
+1346868941 source:g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\sources\mjoystick.cpp
+	"../Includes/MJoystick.h"
+
+1346868941 source:g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\sources\mkeyboard.cpp
+	"../Includes/MKeyboard.h"
+
+1346868941 source:g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\sources\mmouse.cpp
+	"../Includes/MMouse.h"
+

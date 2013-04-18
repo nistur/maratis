@@ -1,0 +1,40 @@
+# coding: utf-8
+# MSDK/MGui framework build Sconscript
+# $LastChangedDate: 2012-08-31 18:57:41 +0100 (Fri, 31 Aug 2012) $
+# $LastChangedBy: anael.seghezzi@gmail.com $
+
+import os, sys, fnmatch
+import pyutils
+import thirdparty
+
+Import('env')
+env_local = env.Clone()
+
+# include dirs
+env_local.AppendUnique(CPPPATH = ['./Includes',
+                                  '../MCore/Includes',
+                                  '#Maratis/Common'] )
+
+if sys.platform=='linux2' or sys.platform=='linux3':
+    env_local.AppendUnique(CPPPATH = ['/usr/include'] )
+
+# needed libs (when building as a shared library)
+#if sys.platform=='linux2' or sys.platform=='linux3':
+    #env_local.AppendUnique(LIBS = ['GL',
+                                   #'Xxf86vm'] )
+
+# get list of files 
+files = Glob('./Sources/*.c*',source=True)
+if sys.platform=='win32' or sys.platform=='cygwin':
+    files.append(Glob('./Sources/WIN32/*.c*',source=True))
+if sys.platform=='darwin':
+    files.append(Glob('./Sources/COCOA/*.m*',source=True))
+if sys.platform=='linux2' or sys.platform=='linux3':
+    files.append(Glob('./Sources/X11/*.c*',source=True))
+
+# build library
+mgui_lib  = env_local.StaticLibrary('MGui',files)
+#mgui_lib  = env_local.SharedLibrary('MGui',files,RPATH='@rpath/libMGui.dylib')
+
+Return('mgui_lib')
+

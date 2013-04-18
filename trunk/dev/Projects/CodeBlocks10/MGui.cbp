@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="MGui" />
+		<Option pch_mode="2" />
+		<Option compiler="cygwin" />
+		<Build>
+			<Target title="Debug">
+				<Option output="..\..\build\$(platform)\release\MSDK\MGui\libMGui" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj\Debug\" />
+				<Option type="2" />
+				<Option compiler="cygwin" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-DWIN32" />
+					<Add directory="..\..\Maratis\Common" />
+					<Add directory="..\..\MSDK\MCore\Includes" />
+					<Add directory="..\..\MSDK\MGui\Includes" />
+					<Add directory="..\..\MSDK\MEngine\Includes" />
+				</Compiler>
+				<Environment>
+					<Variable name="platform" value="cygwin" />
+				</Environment>
+			</Target>
+		</Build>
+		<Unit filename="..\..\MSDK\MGui\Sources\MGui.cpp" />
+		<Unit filename="..\..\MSDK\MGui\Sources\MGui2d.cpp" />
+		<Unit filename="..\..\MSDK\MGui\Sources\MGuiButton.cpp" />
+		<Unit filename="..\..\MSDK\MGui\Sources\MGuiEditText.cpp" />
+		<Unit filename="..\..\MSDK\MGui\Sources\MGuiFileBrowser.cpp" />
+		<Unit filename="..\..\MSDK\MGui\Sources\MGuiImage.cpp" />
+		<Unit filename="..\..\MSDK\MGui\Sources\MGuiMenu.cpp" />
+		<Unit filename="..\..\MSDK\MGui\Sources\MGuiSlide.cpp" />
+		<Unit filename="..\..\MSDK\MGui\Sources\MGuiText.cpp" />
+		<Unit filename="..\..\MSDK\MGui\Sources\MGuiTextureFont.cpp" />
+		<Unit filename="..\..\MSDK\MGui\Sources\MGuiWindow.cpp" />
+		<Unit filename="..\..\MSDK\MGui\Sources\MJoystick.cpp" />
+		<Unit filename="..\..\MSDK\MGui\Sources\MKeyboard.cpp" />
+		<Unit filename="..\..\MSDK\MGui\Sources\MMouse.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

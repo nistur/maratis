@@ -1,0 +1,68 @@
+# coding: utf-8
+# Maratis/Editor framework build Sconscript
+# $LastChangedDate: 2013-01-14 15:49:16 +0000 (Mon, 14 Jan 2013) $
+# $LastChangedBy: anael.seghezzi@gmail.com $
+
+
+import os, sys, fnmatch
+import pyutils
+import thirdparty
+
+Import('env')
+env_local = env.Clone()
+
+# include dirs
+env_local.AppendUnique(CPPPATH = ['#MSDK/MCore/Includes',
+                                  '#MSDK/MEngine/Includes',
+                                  '#MSDK/MGui/Includes',
+                                  '#Maratis/Common'] )
+
+if sys.platform=='linux2' or sys.platform=='linux3':
+    env_local.AppendUnique(CPPPATH = ['/usr/include'])
+
+# lib dirs
+env_local.AppendUnique(LIBPATH = ['../../MSDK/MaratisCore',
+                                  '../../MSDK/MEngine',
+                                  '../../MSDK/MCore',
+                                  '../../MSDK/MGui',
+                                  '../Common'] )
+# needed libs
+env_local.AppendUnique(LIBS = ['MaratisCommon',
+                               'MEngine',
+                               'MCore',
+                               'MGui'] )
+
+if sys.platform=='linux2' or sys.platform=='linux3':
+    env_local.AppendUnique(LIBS = ['GL',
+                                   'Xxf86vm','X11',
+                                   'dl'] )
+
+# add 3rdparty libraries parameters
+thirdparty.assimp.addAssimpToEnv(env_local)
+thirdparty.npk_dev.addNPKDevToEnv(env_local) # must be added  before zlib in order to link on CYGWIN WIN32
+thirdparty.lua.addLuaToEnv(env_local)
+thirdparty.bullet.addBulletToEnv(env_local)
+thirdparty.openal.addOpenALToEnv(env_local)
+thirdparty.glee.addGleeToEnv(env_local) # must be added before openGL
+thirdparty.devil.addDevilToEnv(env_local)
+thirdparty.tinyxml.addTinyXmlToEnv(env_local)
+thirdparty.libpng.addLibPngToEnv(env_local)
+thirdparty.libjpeg.addLibJpegToEnv(env_local)
+thirdparty.freetype.addFreetypeToEnv(env_local)
+thirdparty.libsndfile.addLibSndFileToEnv(env_local)
+thirdparty.zlib.addZlibToEnv(env_local)
+thirdparty.opengl.addOpenGLToEnv(env_local)
+
+if sys.platform=='darwin':
+    thirdparty.cocoa.addCocoaToEnv(env_local)
+if sys.platform=='win32' or sys.platform == 'cygwin':
+    thirdparty.windows.addWindowsToEnv(env_local)
+
+# get list of files (recursive)
+files = pyutils.getFilesRecursive(Dir('.').srcnode().abspath,'*.c*')
+
+# build application
+env_local.AppendUnique(RPATH = ['@loader_path/.'])
+maratiseditor_exe  = env_local.Program('MaratisEditor',files,PDB='MaratisEditor.pdb')
+Return('maratiseditor_exe')
+

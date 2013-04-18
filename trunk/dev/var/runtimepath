@@ -1,0 +1,6 @@
+#!/bin/bash 
+
+for file in $@; do 
+  echo "$file": 
+  otool -l $file | grep -A 3 LC_RPATH | grep path 
+done

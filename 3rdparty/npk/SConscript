@@ -1,0 +1,28 @@
+# coding: utf-8
+# npl build Sconscript
+# $LastChangedDate: 2008-05-12 12:03:21 +0200 (Mon, 12 May 2008) $
+# $LastChangedBy: dbacc $
+
+
+import os, sys, fnmatch
+import pyutils
+
+Import('env')
+env_local = env.Clone()
+
+# include dirs
+env_local.AppendUnique(CPPPATH = ['./include','../zlib'] )
+
+env_local.AppendUnique(LIBPATH = ['../zlib'] )
+
+# list of needed libraries
+libs = []
+libs.append('zlib')
+
+# get list of files (recursive)
+files = pyutils.getFilesRecursive(Dir('.').srcnode().abspath,'*.c*')
+
+# build library
+npk_dev_lib  = env_local.StaticLibrary('npk_dev',files,LIBS=libs)
+Return('npk_dev_lib')
+

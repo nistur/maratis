@@ -1,0 +1,892 @@
+# depslib dependency file v1.0
+1351114248 source:g:\perso\devel\maratis\maratis\trunk\dev\maratis\player\main.cpp
+	<MEngine.h>
+	<MLog.h>
+	<MWindow.h>
+	<MGameWinEvents.h>
+	"Maratis/MaratisPlayer.h"
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mengine.h
+	<MCore.h>
+	"MPackageManager.h"
+	"MKey.h"
+	"MObject3dAnim.h"
+	"MTextureAnim.h"
+	"MMaterialAnim.h"
+	"MArmatureAnim.h"
+	"MTexturesAnim.h"
+	"MMaterialsAnim.h"
+	"MFXManager.h"
+	"MVariable.h"
+	"MBehavior.h"
+	"MBehaviorCreator.h"
+	"MBehaviorManager.h"
+	"MRenderer.h"
+	"MRendererCreator.h"
+	"MRendererManager.h"
+	"MBox3d.h"
+	"MFrustum.h"
+	"MFont.h"
+	"MTexture.h"
+	"MMaterial.h"
+	"MArmature.h"
+	"MMesh.h"
+	"MMeshTools.h"
+	"MFontRef.h"
+	"MShaderRef.h"
+	"MSoundRef.h"
+	"MMeshRef.h"
+	"MTextureRef.h"
+	"MArmatureAnimRef.h"
+	"MTexturesAnimRef.h"
+	"MMaterialsAnimRef.h"
+	"MObject3d.h"
+	"MOBone.h"
+	"MOCamera.h"
+	"MOLight.h"
+	"MOSound.h"
+	"MOEntity.h"
+	"MOText.h"
+	"MScene.h"
+	"MLevel.h"
+	"MGame.h"
+
+1346872544 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mcore.h
+	"MUtils.h"
+	"MString.h"
+	"MFile.h"
+	"MStdFile.h"
+	"MFileTools.h"
+	"MMaths.h"
+	"MSystemContext.h"
+	"MInputContext.h"
+	"MRenderingContext.h"
+	"MSoundContext.h"
+	"MPhysicsContext.h"
+	"MScriptContext.h"
+	"MImage.h"
+	"MSound.h"
+	"MStringTools.h"
+	"MDataManager.h"
+	"MDataLoader.h"
+
+1346872544 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mutils.h
+	<map>
+	<vector>
+	<string>
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<stdarg.h>
+
+1350681567 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mstring.h
+
+1346875872 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mfile.h
+	<stdarg.h>
+
+1346872544 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mstdfile.h
+
+1346872544 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mfiletools.h
+
+1346872544 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mmaths.h
+	<math.h>
+	"MVector2.h"
+	"MVector3.h"
+	"MVector4.h"
+	"MColor.h"
+	"MMatrix4x4.h"
+	"MQuaternion.h"
+
+1346872544 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mvector2.h
+
+1346872544 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mvector3.h
+
+1346872544 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mvector4.h
+
+1346872544 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mcolor.h
+
+1346872544 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mmatrix4x4.h
+
+1346872544 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mquaternion.h
+
+1346872544 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\msystemcontext.h
+
+1346872544 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\minputcontext.h
+
+1346872544 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mrenderingcontext.h
+
+1346872544 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\msoundcontext.h
+
+1346872544 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mphysicscontext.h
+
+1346872544 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mscriptcontext.h
+
+1346872544 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mimage.h
+
+1346872544 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\msound.h
+
+1346872544 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mstringtools.h
+
+1346872544 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mdatamanager.h
+
+1346872544 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mcore\includes\mdataloader.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mpackagemanager.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mkey.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mobject3danim.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mtextureanim.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mmaterialanim.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\marmatureanim.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mtexturesanim.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mmaterialsanim.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mfxmanager.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mvariable.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mbehavior.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mbehaviorcreator.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mbehaviormanager.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mrenderer.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mrenderercreator.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mrenderermanager.h
+
+1346872542 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mbox3d.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mfrustum.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mfont.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mtexture.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mmaterial.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\marmature.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mmesh.h
+	"MMorphingData.h"
+	"MSkinData.h"
+
+1346872542 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mmorphingdata.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mskindata.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mmeshtools.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mfontref.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mshaderref.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\msoundref.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mmeshref.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mtextureref.h
+
+1346872542 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\marmatureanimref.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mtexturesanimref.h
+
+1346872542 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mmaterialsanimref.h
+
+1350681568 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mobject3d.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mobone.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mocamera.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\molight.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mosound.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\moentity.h
+
+1350681568 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\motext.h
+
+1350681568 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mscene.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mlevel.h
+
+1346872543 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mgame.h
+
+1351183721 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\includes\mlog.h
+	<ostream>
+	<iostream>
+	<sstream>
+	<fstream>
+	<string>
+
+1346872541 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\mwindow.h
+	<MWinEvents.h>
+	<MMouse.h>
+	<MKeyboard.h>
+	<MJoystick.h>
+	"WIN32/MWin32Window.h"
+	"COCOA/MCocoaWindow.h"
+	"X11/MX11Window.h"
+
+1346872541 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\mwinevents.h
+
+1346872541 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\mmouse.h
+
+1346872541 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\mkeyboard.h
+
+1346872541 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\mjoystick.h
+
+1346872541 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\win32\mwin32window.h
+	<w32api.h>
+	<MCore.h>
+	<windows.h>
+	<list>
+
+1350681567 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\cocoa\mcocoawindow.h
+	<MCore.h>
+	<list>
+
+1346872541 g:\perso\devel\maratis\maratis\trunk\dev\msdk\mgui\includes\x11\mx11window.h
+	<X11/X.h>
+	<X11/Xlib.h>
+	<X11/keysym.h>
+	<list>
+	<string>
+
+1346872534 g:\perso\devel\maratis\maratis\trunk\dev\maratis\common\mgamewinevents.h
+
+1346872535 g:\perso\devel\maratis\maratis\trunk\dev\maratis\player\maratis\maratisplayer.h
+	<MEngine.h>
+	<MPlugin/MPlugin.h>
+	<MProject/MProject.h>
+
+1346872535 g:\perso\devel\maratis\maratis\trunk\dev\maratis\common\mplugin\mplugin.h
+	<windows.h>
+	<dlfcn.h>
+
+1346872534 g:\perso\devel\maratis\maratis\trunk\dev\maratis\common\mproject\mproject.h
+
+1346872535 source:g:\perso\devel\maratis\maratis\trunk\dev\maratis\player\maratis\maratisplayer.cpp
+	"MaratisPlayer.h"
+	<MWindow.h>
+	<MContexts/MGLContext.h>
+	<MContexts/MALContext.h>
+	<MContexts/MBulletContext.h>
+	<MContexts/MWinContext.h>
+	<MLoaders/MDevILLoader.h>
+	<MLoaders/MSndFileLoader.h>
+	<MLoaders/MFreetypeLoader.h>
+	<MLoaders/MBinFontLoader.h>
+	<MLoaders/MBinMeshLoader.h>
+	<MFileManager/MLevelLoad.h>
+	<MBehaviors/MBLookAt.h>
+	<MBehaviors/MBFollow.h>
+	<MScript/MScript.h>
+	<MInput/MInput.h>
+	<MFileManager/MMeshLoad.h>
+	<MFileManager/MLevelLoad.h>
+	<MFileManager/MPackageManagerNPK.h>
+	<MRenderers/MStandardRenderer.h>
+	<MRenderers/MFixedRenderer.h>
+
+1346872534 g:\perso\devel\maratis\maratis\trunk\dev\maratis\common\mcontexts\mglcontext.h
+	<MCore.h>
+
+1346872534 g:\perso\devel\maratis\maratis\trunk\dev\maratis\common\mcontexts\malcontext.h
+	<OpenAL/al.h>
+	<OpenAL/alc.h>
+	<AL/al.h>
+	<AL/alc.h>
+	<MCore.h>
+
+1346872534 g:\perso\devel\maratis\maratis\trunk\dev\maratis\common\mcontexts\mbulletcontext.h
+	<btBulletDynamicsCommon.h>
+	<MCore.h>
+
+1346872580 g:\perso\devel\maratis\maratis\3rdparty\bullet\btbulletdynamicscommon.h
+	"btBulletCollisionCommon.h"
+	"BulletDynamics/Dynamics/btDiscreteDynamicsWorld.h"
+	"BulletDynamics/Dynamics/btSimpleDynamicsWorld.h"
+	"BulletDynamics/Dynamics/btRigidBody.h"
+	"BulletDynamics/ConstraintSolver/btPoint2PointConstraint.h"
+	"BulletDynamics/ConstraintSolver/btHingeConstraint.h"
+	"BulletDynamics/ConstraintSolver/btConeTwistConstraint.h"
+	"BulletDynamics/ConstraintSolver/btGeneric6DofConstraint.h"
+	"BulletDynamics/ConstraintSolver/btSliderConstraint.h"
+	"BulletDynamics/ConstraintSolver/btGeneric6DofSpringConstraint.h"
+	"BulletDynamics/ConstraintSolver/btUniversalConstraint.h"
+	"BulletDynamics/ConstraintSolver/btHinge2Constraint.h"
+	"BulletDynamics/ConstraintSolver/btSequentialImpulseConstraintSolver.h"
+	"BulletDynamics/Vehicle/btRaycastVehicle.h"
+
+1346872580 g:\perso\devel\maratis\maratis\3rdparty\bullet\btbulletcollisioncommon.h
+	"BulletCollision/CollisionDispatch/btCollisionWorld.h"
+	"BulletCollision/CollisionDispatch/btCollisionObject.h"
+	"BulletCollision/CollisionShapes/btBoxShape.h"
+	"BulletCollision/CollisionShapes/btSphereShape.h"
+	"BulletCollision/CollisionShapes/btCapsuleShape.h"
+	"BulletCollision/CollisionShapes/btCylinderShape.h"
+	"BulletCollision/CollisionShapes/btConeShape.h"
+	"BulletCollision/CollisionShapes/btStaticPlaneShape.h"
+	"BulletCollision/CollisionShapes/btConvexHullShape.h"
+	"BulletCollision/CollisionShapes/btTriangleMesh.h"
+	"BulletCollision/CollisionShapes/btConvexTriangleMeshShape.h"
+	"BulletCollision/CollisionShapes/btBvhTriangleMeshShape.h"
+	"BulletCollision/CollisionShapes/btScaledBvhTriangleMeshShape.h"
+	"BulletCollision/CollisionShapes/btTriangleMeshShape.h"
+	"BulletCollision/CollisionShapes/btTriangleIndexVertexArray.h"
+	"BulletCollision/CollisionShapes/btCompoundShape.h"
+	"BulletCollision/CollisionShapes/btTetrahedronShape.h"
+	"BulletCollision/CollisionShapes/btEmptyShape.h"
+	"BulletCollision/CollisionShapes/btMultiSphereShape.h"
+	"BulletCollision/CollisionShapes/btUniformScalingShape.h"
+	"BulletCollision/CollisionDispatch/btSphereSphereCollisionAlgorithm.h"
+	"BulletCollision/CollisionDispatch/btDefaultCollisionConfiguration.h"
+	"BulletCollision/CollisionDispatch/btCollisionDispatcher.h"
+	"BulletCollision/BroadphaseCollision/btSimpleBroadphase.h"
+	"BulletCollision/BroadphaseCollision/btAxisSweep3.h"
+	"BulletCollision/BroadphaseCollision/btMultiSapBroadphase.h"
+	"BulletCollision/BroadphaseCollision/btDbvtBroadphase.h"
+	"LinearMath/btQuaternion.h"
+	"LinearMath/btTransform.h"
+	"LinearMath/btDefaultMotionState.h"
+	"LinearMath/btQuickprof.h"
+	"LinearMath/btIDebugDraw.h"
+	"LinearMath/btSerializer.h"
+
+1346872579 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisiondispatch\btcollisionworld.h
+	"LinearMath/btVector3.h"
+	"LinearMath/btTransform.h"
+	"btCollisionObject.h"
+	"btCollisionDispatcher.h"
+	"BulletCollision/BroadphaseCollision/btOverlappingPairCache.h"
+	"LinearMath/btAlignedObjectArray.h"
+
+1346872580 g:\perso\devel\maratis\maratis\3rdparty\bullet\linearmath\btvector3.h
+	"btScalar.h"
+	"btMinMax.h"
+
+1346872580 g:\perso\devel\maratis\maratis\3rdparty\bullet\linearmath\btscalar.h
+	<math.h>
+	<stdlib.h>
+	<float.h>
+	<ppcintrinsics.h>
+	<emmintrin.h>
+	<assert.h>
+	<assert.h>
+	<spu_printf.h>
+	<assert.h>
+	<emmintrin.h>
+	<assert.h>
+	<assert.h>
+
+1346872580 g:\perso\devel\maratis\maratis\3rdparty\bullet\linearmath\btminmax.h
+	"LinearMath/btScalar.h"
+
+1346872580 g:\perso\devel\maratis\maratis\3rdparty\bullet\linearmath\bttransform.h
+	"btMatrix3x3.h"
+
+1346872580 g:\perso\devel\maratis\maratis\3rdparty\bullet\linearmath\btmatrix3x3.h
+	"btVector3.h"
+	"btQuaternion.h"
+
+1346872580 g:\perso\devel\maratis\maratis\3rdparty\bullet\linearmath\btquaternion.h
+	"btVector3.h"
+	"btQuadWord.h"
+
+1346872580 g:\perso\devel\maratis\maratis\3rdparty\bullet\linearmath\btquadword.h
+	"btScalar.h"
+	"btMinMax.h"
+	<altivec.h>
+
+1346872579 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisiondispatch\btcollisionobject.h
+	"LinearMath/btTransform.h"
+	"LinearMath/btMotionState.h"
+	"LinearMath/btAlignedAllocator.h"
+	"LinearMath/btAlignedObjectArray.h"
+
+1346872580 g:\perso\devel\maratis\maratis\3rdparty\bullet\linearmath\btmotionstate.h
+	"btTransform.h"
+
+1346872580 g:\perso\devel\maratis\maratis\3rdparty\bullet\linearmath\btalignedallocator.h
+	"btScalar.h"
+
+1346872580 g:\perso\devel\maratis\maratis\3rdparty\bullet\linearmath\btalignedobjectarray.h
+	"btScalar.h"
+	"btAlignedAllocator.h"
+	<memory.h>
+	<string.h>
+	<new>
+
+1346872579 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisiondispatch\btcollisiondispatcher.h
+	"BulletCollision/BroadphaseCollision/btDispatcher.h"
+	"BulletCollision/NarrowPhaseCollision/btPersistentManifold.h"
+	"BulletCollision/CollisionDispatch/btManifoldResult.h"
+	"BulletCollision/BroadphaseCollision/btBroadphaseProxy.h"
+	"LinearMath/btAlignedObjectArray.h"
+	"btCollisionCreateFunc.h"
+
+1346872572 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\broadphasecollision\btdispatcher.h
+	"LinearMath/btScalar.h"
+
+1346872574 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\narrowphasecollision\btpersistentmanifold.h
+	"LinearMath/btVector3.h"
+	"LinearMath/btTransform.h"
+	"btManifoldPoint.h"
+	"LinearMath/btAlignedAllocator.h"
+
+1346872574 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\narrowphasecollision\btmanifoldpoint.h
+	"LinearMath/btVector3.h"
+	"LinearMath/btTransformUtil.h"
+	"physics_effects/base_level/solver/pfx_constraint_row.h"
+
+1346872580 g:\perso\devel\maratis\maratis\3rdparty\bullet\linearmath\bttransformutil.h
+	"btTransform.h"
+
+1346872579 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisiondispatch\btmanifoldresult.h
+	"BulletCollision/NarrowPhaseCollision/btPersistentManifold.h"
+	"BulletCollision/NarrowPhaseCollision/btDiscreteCollisionDetectorInterface.h"
+	"LinearMath/btTransform.h"
+
+1346872574 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\narrowphasecollision\btdiscretecollisiondetectorinterface.h
+	"LinearMath/btTransform.h"
+	"LinearMath/btVector3.h"
+
+1346872572 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\broadphasecollision\btbroadphaseproxy.h
+	"LinearMath/btScalar.h"
+	"LinearMath/btVector3.h"
+	"LinearMath/btAlignedAllocator.h"
+
+1346872579 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisiondispatch\btcollisioncreatefunc.h
+	"LinearMath/btAlignedObjectArray.h"
+
+1346872572 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\broadphasecollision\btoverlappingpaircache.h
+	"btBroadphaseInterface.h"
+	"btBroadphaseProxy.h"
+	"btOverlappingPairCallback.h"
+	"LinearMath/btAlignedObjectArray.h"
+
+1346872572 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\broadphasecollision\btbroadphaseinterface.h
+	"btBroadphaseProxy.h"
+	"LinearMath/btVector3.h"
+
+1346872572 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\broadphasecollision\btoverlappingpaircallback.h
+
+1346872571 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\btboxshape.h
+	"btPolyhedralConvexShape.h"
+	"btCollisionMargin.h"
+	"BulletCollision/BroadphaseCollision/btBroadphaseProxy.h"
+	"LinearMath/btVector3.h"
+	"LinearMath/btMinMax.h"
+
+1346872572 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\btpolyhedralconvexshape.h
+	"LinearMath/btMatrix3x3.h"
+	"btConvexInternalShape.h"
+
+1346872571 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\btconvexinternalshape.h
+	"btConvexShape.h"
+	"LinearMath/btAabbUtil2.h"
+
+1346872572 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\btconvexshape.h
+	"btCollisionShape.h"
+	"LinearMath/btVector3.h"
+	"LinearMath/btTransform.h"
+	"LinearMath/btMatrix3x3.h"
+	"btCollisionMargin.h"
+	"LinearMath/btAlignedAllocator.h"
+
+1346872572 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\btcollisionshape.h
+	"LinearMath/btTransform.h"
+	"LinearMath/btVector3.h"
+	"LinearMath/btMatrix3x3.h"
+	"BulletCollision/BroadphaseCollision/btBroadphaseProxy.h"
+
+1346872571 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\btcollisionmargin.h
+
+1346872580 g:\perso\devel\maratis\maratis\3rdparty\bullet\linearmath\btaabbutil2.h
+	"btTransform.h"
+	"btVector3.h"
+	"btMinMax.h"
+
+1346872571 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\btsphereshape.h
+	"btConvexInternalShape.h"
+	"BulletCollision/BroadphaseCollision/btBroadphaseProxy.h"
+
+1346872571 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\btcapsuleshape.h
+	"btConvexInternalShape.h"
+	"BulletCollision/BroadphaseCollision/btBroadphaseProxy.h"
+
+1346872572 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\btcylindershape.h
+	"btBoxShape.h"
+	"BulletCollision/BroadphaseCollision/btBroadphaseProxy.h"
+	"LinearMath/btVector3.h"
+
+1346872571 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\btconeshape.h
+	"btConvexInternalShape.h"
+	"BulletCollision/BroadphaseCollision/btBroadphaseProxy.h"
+
+1346872571 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\btstaticplaneshape.h
+	"btConcaveShape.h"
+
+1346872572 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\btconcaveshape.h
+	"btCollisionShape.h"
+	"BulletCollision/BroadphaseCollision/btBroadphaseProxy.h"
+	"btTriangleCallback.h"
+
+1346872571 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\bttrianglecallback.h
+	"LinearMath/btVector3.h"
+
+1346872571 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\btconvexhullshape.h
+	"btPolyhedralConvexShape.h"
+	"BulletCollision/BroadphaseCollision/btBroadphaseProxy.h"
+	"LinearMath/btAlignedObjectArray.h"
+
+1346872571 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\bttrianglemesh.h
+	"btTriangleIndexVertexArray.h"
+	"LinearMath/btVector3.h"
+	"LinearMath/btAlignedObjectArray.h"
+
+1346872571 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\bttriangleindexvertexarray.h
+	"btStridingMeshInterface.h"
+	"LinearMath/btAlignedObjectArray.h"
+	"LinearMath/btScalar.h"
+
+1346872571 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\btstridingmeshinterface.h
+	"LinearMath/btVector3.h"
+	"btTriangleCallback.h"
+	"btConcaveShape.h"
+
+1346872572 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\btconvextrianglemeshshape.h
+	"btPolyhedralConvexShape.h"
+	"BulletCollision/BroadphaseCollision/btBroadphaseProxy.h"
+
+1346872571 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\btbvhtrianglemeshshape.h
+	"btTriangleMeshShape.h"
+	"btOptimizedBvh.h"
+	"LinearMath/btAlignedAllocator.h"
+	"btTriangleInfoMap.h"
+
+1346872571 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\bttrianglemeshshape.h
+	"btConcaveShape.h"
+	"btStridingMeshInterface.h"
+
+1346872571 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\btoptimizedbvh.h
+	"BulletCollision/BroadphaseCollision/btQuantizedBvh.h"
+
+1346872572 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\broadphasecollision\btquantizedbvh.h
+	<stdio.h>
+	<stdlib.h>
+	"LinearMath/btVector3.h"
+	"LinearMath/btAlignedAllocator.h"
+	"LinearMath/btAlignedAllocator.h"
+	"LinearMath/btAlignedObjectArray.h"
+
+1346872572 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\bttriangleinfomap.h
+	"LinearMath/btHashMap.h"
+	"LinearMath/btSerializer.h"
+
+1346872580 g:\perso\devel\maratis\maratis\3rdparty\bullet\linearmath\bthashmap.h
+	"btAlignedObjectArray.h"
+
+1346872580 g:\perso\devel\maratis\maratis\3rdparty\bullet\linearmath\btserializer.h
+	"btScalar.h"
+	"btStackAlloc.h"
+	"btHashMap.h"
+	<memory.h>
+	<string.h>
+
+1346872580 g:\perso\devel\maratis\maratis\3rdparty\bullet\linearmath\btstackalloc.h
+	"btScalar.h"
+	"btAlignedAllocator.h"
+
+1346872572 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\btscaledbvhtrianglemeshshape.h
+	"BulletCollision/CollisionShapes/btBvhTriangleMeshShape.h"
+
+1346872572 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\btcompoundshape.h
+	"btCollisionShape.h"
+	"LinearMath/btVector3.h"
+	"LinearMath/btTransform.h"
+	"LinearMath/btMatrix3x3.h"
+	"btCollisionMargin.h"
+	"LinearMath/btAlignedObjectArray.h"
+
+1346872572 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\bttetrahedronshape.h
+	"btPolyhedralConvexShape.h"
+	"BulletCollision/BroadphaseCollision/btBroadphaseProxy.h"
+
+1346872572 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\btemptyshape.h
+	"btConcaveShape.h"
+	"LinearMath/btVector3.h"
+	"LinearMath/btTransform.h"
+	"LinearMath/btMatrix3x3.h"
+	"btCollisionMargin.h"
+
+1346872571 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\btmultisphereshape.h
+	"btConvexInternalShape.h"
+	"BulletCollision/BroadphaseCollision/btBroadphaseProxy.h"
+	"LinearMath/btAlignedObjectArray.h"
+	"LinearMath/btAabbUtil2.h"
+
+1346872572 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisionshapes\btuniformscalingshape.h
+	"btConvexShape.h"
+	"BulletCollision/BroadphaseCollision/btBroadphaseProxy.h"
+
+1346872579 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisiondispatch\btspherespherecollisionalgorithm.h
+	"btActivatingCollisionAlgorithm.h"
+	"BulletCollision/BroadphaseCollision/btBroadphaseProxy.h"
+	"BulletCollision/CollisionDispatch/btCollisionCreateFunc.h"
+	"btCollisionDispatcher.h"
+
+1346872579 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisiondispatch\btactivatingcollisionalgorithm.h
+	"BulletCollision/BroadphaseCollision/btCollisionAlgorithm.h"
+
+1346872572 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\broadphasecollision\btcollisionalgorithm.h
+	"LinearMath/btScalar.h"
+	"LinearMath/btAlignedObjectArray.h"
+
+1346872579 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisiondispatch\btdefaultcollisionconfiguration.h
+	"btCollisionConfiguration.h"
+
+1346872579 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\collisiondispatch\btcollisionconfiguration.h
+
+1346872572 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\broadphasecollision\btsimplebroadphase.h
+	"btOverlappingPairCache.h"
+
+1346872572 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\broadphasecollision\btaxissweep3.h
+	"LinearMath/btVector3.h"
+	"btOverlappingPairCache.h"
+	"btBroadphaseInterface.h"
+	"btBroadphaseProxy.h"
+	"btOverlappingPairCallback.h"
+	"btDbvtBroadphase.h"
+	<stdio.h>
+
+1346872572 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\broadphasecollision\btdbvtbroadphase.h
+	"BulletCollision/BroadphaseCollision/btDbvt.h"
+	"BulletCollision/BroadphaseCollision/btOverlappingPairCache.h"
+	"LinearMath/btQuickprof.h"
+
+1346872572 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\broadphasecollision\btdbvt.h
+	"LinearMath/btAlignedObjectArray.h"
+	"LinearMath/btVector3.h"
+	"LinearMath/btTransform.h"
+	"LinearMath/btAabbUtil2.h"
+	<emmintrin.h>
+	<memory.h>
+	<string.h>
+
+1346872580 g:\perso\devel\maratis\maratis\3rdparty\bullet\linearmath\btquickprof.h
+	<stdio.h>
+	"btScalar.h"
+	"btAlignedAllocator.h"
+	<new>
+
+1346872572 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletcollision\broadphasecollision\btmultisapbroadphase.h
+	"btBroadphaseInterface.h"
+	"LinearMath/btAlignedObjectArray.h"
+	"btOverlappingPairCache.h"
+
+1346872580 g:\perso\devel\maratis\maratis\3rdparty\bullet\linearmath\btdefaultmotionstate.h
+	"btMotionState.h"
+
+1346872580 g:\perso\devel\maratis\maratis\3rdparty\bullet\linearmath\btidebugdraw.h
+	"btVector3.h"
+	"btTransform.h"
+
+1346872570 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletdynamics\dynamics\btdiscretedynamicsworld.h
+	"btDynamicsWorld.h"
+	"LinearMath/btAlignedObjectArray.h"
+
+1346872570 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletdynamics\dynamics\btdynamicsworld.h
+	"BulletCollision/CollisionDispatch/btCollisionWorld.h"
+	"BulletDynamics/ConstraintSolver/btContactSolverInfo.h"
+
+1346872569 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletdynamics\constraintsolver\btcontactsolverinfo.h
+
+1346872569 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletdynamics\dynamics\btsimpledynamicsworld.h
+	"btDynamicsWorld.h"
+
+1346872569 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletdynamics\dynamics\btrigidbody.h
+	"LinearMath/btAlignedObjectArray.h"
+	"LinearMath/btTransform.h"
+	"BulletCollision/BroadphaseCollision/btBroadphaseProxy.h"
+	"BulletCollision/CollisionDispatch/btCollisionObject.h"
+
+1346872569 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletdynamics\constraintsolver\btpoint2pointconstraint.h
+	"LinearMath/btVector3.h"
+	"btJacobianEntry.h"
+	"btTypedConstraint.h"
+
+1346872569 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletdynamics\constraintsolver\btjacobianentry.h
+	"LinearMath/btVector3.h"
+	"BulletDynamics/Dynamics/btRigidBody.h"
+
+1346872569 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletdynamics\constraintsolver\bttypedconstraint.h
+	"LinearMath/btScalar.h"
+	"btSolverConstraint.h"
+
+1346872569 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletdynamics\constraintsolver\btsolverconstraint.h
+	"LinearMath/btVector3.h"
+	"LinearMath/btMatrix3x3.h"
+	"btJacobianEntry.h"
+	"btSolverBody.h"
+
+1346872569 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletdynamics\constraintsolver\btsolverbody.h
+	"LinearMath/btVector3.h"
+	"LinearMath/btMatrix3x3.h"
+	"BulletDynamics/Dynamics/btRigidBody.h"
+	"LinearMath/btAlignedAllocator.h"
+	"LinearMath/btTransformUtil.h"
+
+1346872569 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletdynamics\constraintsolver\bthingeconstraint.h
+	"LinearMath/btVector3.h"
+	"btJacobianEntry.h"
+	"btTypedConstraint.h"
+
+1346872569 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletdynamics\constraintsolver\btconetwistconstraint.h
+	"LinearMath/btVector3.h"
+	"btJacobianEntry.h"
+	"btTypedConstraint.h"
+
+1346872569 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletdynamics\constraintsolver\btgeneric6dofconstraint.h
+	"LinearMath/btVector3.h"
+	"btJacobianEntry.h"
+	"btTypedConstraint.h"
+
+1346872569 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletdynamics\constraintsolver\btsliderconstraint.h
+	"LinearMath/btVector3.h"
+	"btJacobianEntry.h"
+	"btTypedConstraint.h"
+
+1346872569 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletdynamics\constraintsolver\btgeneric6dofspringconstraint.h
+	"LinearMath/btVector3.h"
+	"btTypedConstraint.h"
+	"btGeneric6DofConstraint.h"
+
+1346872569 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletdynamics\constraintsolver\btuniversalconstraint.h
+	"LinearMath/btVector3.h"
+	"btTypedConstraint.h"
+	"btGeneric6DofConstraint.h"
+
+1346872569 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletdynamics\constraintsolver\bthinge2constraint.h
+	"LinearMath/btVector3.h"
+	"btTypedConstraint.h"
+	"btGeneric6DofSpringConstraint.h"
+
+1346872569 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletdynamics\constraintsolver\btsequentialimpulseconstraintsolver.h
+	"btConstraintSolver.h"
+	"btContactConstraint.h"
+	"btSolverBody.h"
+	"btSolverConstraint.h"
+	"btTypedConstraint.h"
+	"BulletCollision/NarrowPhaseCollision/btManifoldPoint.h"
+
+1346872569 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletdynamics\constraintsolver\btconstraintsolver.h
+	"LinearMath/btScalar.h"
+
+1346872569 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletdynamics\constraintsolver\btcontactconstraint.h
+	"LinearMath/btVector3.h"
+	"btJacobianEntry.h"
+	"btTypedConstraint.h"
+	"BulletCollision/NarrowPhaseCollision/btPersistentManifold.h"
+
+1346872569 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletdynamics\vehicle\btraycastvehicle.h
+	"BulletDynamics/Dynamics/btRigidBody.h"
+	"BulletDynamics/ConstraintSolver/btTypedConstraint.h"
+	"btVehicleRaycaster.h"
+	"LinearMath/btAlignedObjectArray.h"
+	"btWheelInfo.h"
+	"BulletDynamics/Dynamics/btActionInterface.h"
+
+1346872569 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletdynamics\vehicle\btvehicleraycaster.h
+	"LinearMath/btVector3.h"
+
+1346872569 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletdynamics\vehicle\btwheelinfo.h
+	"LinearMath/btVector3.h"
+	"LinearMath/btTransform.h"
+
+1346872570 g:\perso\devel\maratis\maratis\3rdparty\bullet\bulletdynamics\dynamics\btactioninterface.h
+	"LinearMath/btScalar.h"
+	"btRigidBody.h"
+
+1346872534 g:\perso\devel\maratis\maratis\trunk\dev\maratis\common\mcontexts\mwincontext.h
+	<MCore.h>
+
+1346872534 g:\perso\devel\maratis\maratis\trunk\dev\maratis\common\mloaders\mdevilloader.h
+
+1346872534 g:\perso\devel\maratis\maratis\trunk\dev\maratis\common\mloaders\msndfileloader.h
+
+1346872534 g:\perso\devel\maratis\maratis\trunk\dev\maratis\common\mloaders\mfreetypeloader.h
+
+1346872534 g:\perso\devel\maratis\maratis\trunk\dev\maratis\common\mloaders\mbinfontloader.h
+
+1346872534 g:\perso\devel\maratis\maratis\trunk\dev\maratis\common\mloaders\mbinmeshloader.h
+
+1346872535 g:\perso\devel\maratis\maratis\trunk\dev\maratis\common\mfilemanager\mlevelload.h
+
+1346872534 g:\perso\devel\maratis\maratis\trunk\dev\maratis\common\mbehaviors\mblookat.h
+
+1346872534 g:\perso\devel\maratis\maratis\trunk\dev\maratis\common\mbehaviors\mbfollow.h
+
+1346872534 g:\perso\devel\maratis\maratis\trunk\dev\maratis\common\mscript\mscript.h
+	<MEngine.h>
+	<lua.hpp>
+
+1346872555 g:\perso\devel\maratis\maratis\3rdparty\lua\lua.hpp
+	"lua.h"
+	"lualib.h"
+	"lauxlib.h"
+
+1346872555 g:\perso\devel\maratis\maratis\3rdparty\lua\lua.h
+	<stdarg.h>
+	<stddef.h>
+	"luaconf.h"
+
+1346872555 g:\perso\devel\maratis\maratis\3rdparty\lua\luaconf.h
+	<limits.h>
+	<stddef.h>
+	<unistd.h>
+	<io.h>
+	<stdio.h>
+	<stdio.h>
+	<readline/readline.h>
+	<readline/history.h>
+	<assert.h>
+	<math.h>
+	<unistd.h>
+
+1346872555 g:\perso\devel\maratis\maratis\3rdparty\lua\lualib.h
+	"lua.h"
+
+1346872555 g:\perso\devel\maratis\maratis\3rdparty\lua\lauxlib.h
+	<stddef.h>
+	<stdio.h>
+	"lua.h"
+
+1346872535 g:\perso\devel\maratis\maratis\trunk\dev\maratis\common\minput\minput.h
+	<map>
+	<MEngine.h>
+
+1346872535 g:\perso\devel\maratis\maratis\trunk\dev\maratis\common\mfilemanager\mmeshload.h
+
+1346872535 g:\perso\devel\maratis\maratis\trunk\dev\maratis\common\mfilemanager\mpackagemanagernpk.h
+
+1346872535 g:\perso\devel\maratis\maratis\trunk\dev\maratis\common\mrenderers\mstandardrenderer.h
+
+1346872535 g:\perso\devel\maratis\maratis\trunk\dev\maratis\common\mrenderers\mfixedrenderer.h
+
+1351183847 source:g:\perso\devel\maratis\maratis\trunk\dev\msdk\mengine\sources\mlog.cpp
+	"../Includes/MEngine.h"
+	"../Includes/MLog.h"
+	<iostream>
+	<fstream>
+

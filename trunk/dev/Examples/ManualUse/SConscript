@@ -1,0 +1,85 @@
+# Maratis Sample app build Sconscript
+# $LastChangedDate: 2012-09-05 21:17:54 +0100 (Wed, 05 Sep 2012) $
+# $LastChangedBy: skaiware@gmail.com $
+
+
+import os, sys, fnmatch
+import pyutils
+import thirdparty
+
+Import('env')
+env_local = env.Clone()
+
+# include dirs
+env_local.AppendUnique(CPPPATH = ['#MSDK/MCore/Includes',
+                                  '#MSDK/MEngine/Includes',
+                                  '#MSDK/MGui/Includes',
+								  '#Maratis/Common',
+								  '#Maratis/Common/_Implements'] )
+# lib dirs
+env_local.AppendUnique(LIBPATH = ['../../MSDK/MaratisCore',
+                                  '../../MSDK/MEngine',
+                                  '../../MSDK/MCore',
+                                  '../../MSDK/MGui',
+                                  '../../Maratis/Common'] )
+# needed libs
+env_local.AppendUnique(LIBS = ['MaratisCommon',
+                               'MEngine',
+                               'MCore',
+                               'MGui'] )
+
+if sys.platform=='linux2' or sys.platform=='linux3':
+    env_local.AppendUnique(LIBS = ['GL',
+                                   'Xxf86vm', 'X11',
+                                   'dl'] )
+
+# add 3rdparty libraries parameters
+thirdparty.lua.addLuaToEnv(env_local)
+thirdparty.bullet.addBulletToEnv(env_local)
+thirdparty.openal.addOpenALToEnv(env_local)
+thirdparty.glee.addGleeToEnv(env_local) # glee must be before opengl
+thirdparty.opengl.addOpenGLToEnv(env_local)
+thirdparty.devil.addDevilToEnv(env_local)
+thirdparty.tinyxml.addTinyXmlToEnv(env_local)
+thirdparty.libpng.addLibPngToEnv(env_local)
+thirdparty.libjpeg.addLibJpegToEnv(env_local)
+thirdparty.zlib.addZlibToEnv(env_local)
+thirdparty.freetype.addFreetypeToEnv(env_local)
+thirdparty.libsndfile.addLibSndFileToEnv(env_local)
+
+if sys.platform=='darwin':
+    thirdparty.cocoa.addCocoaToEnv(env_local)
+# Cygwin : Choose here between a WIN32 build or a  build : 
+# if WIN32, use the usual libs in /lib/w32api (libopengl32.a, libwinmm.a...)
+# if POSIX, use the usual libs :  env_local.AppendUnique(LIBS = ['X11', 'GL'] )
+if sys.platform=='win32' or sys.platform=='cygwin':
+    thirdparty.windows.addWindowsToEnv(env_local)
+
+# get list of files (recursive)
+files = pyutils.getFilesRecursive(Dir('.').srcnode().abspath,'*.c*')
+
+# build application
+env_local.AppendUnique(RPATH = ['@loader_path/.',
+                                '@loader_path/.'])
+manualuse = env_local.Program('ManualUse',files,PDB='ManualUse.pdb')
+
+
+# ####### #
+# Install #
+# ####### #
+
+# install to prod dir
+finaldir = os.path.join(env['proddir'],'Examples','ManualUse')
+print 'Manual use final dir : ' + finaldir
+env_local.Install(finaldir, manualuse)
+env_local.Install(finaldir, '#Examples/Data/meshs')
+
+# Mac specific: app bundle creation and installation
+if sys.platform == 'darwin':
+    manualuse = env.MakeBundle ( 'ManualUse.app', 
+                                 manualuse,
+                                 typecode = 'APPL',
+                                 resources = ['#Examples/Data/meshs'])
+    env_local.InstallBundle(finaldir, manualuse)
+
+Return('manualuse')

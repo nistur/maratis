@@ -1,0 +1,41 @@
+import sys, os, string, fnmatch
+
+Import('env')
+
+
+if sys.platform=='linux2' or sys.platform=='linux3':
+    env.AppendUnique(LINKFLAGS = ['-Wl,--as-needed'] )
+    env.AppendUnique(LINKFLAGS = ['-Wl,--allow-multiple-definition'])
+    env.AppendUnique(LINKFLAGS = ['-Wl,-rpath,.'])
+    pass
+
+if sys.platform=='win32':
+    env['IMPLIBSUFFIX']='_imp.lib'
+    env['IMPLIBPREFIX']=''
+    env['WINDOWSEXPSUFFIX']='_imp.exp'    
+    pass
+
+if sys.platform=='darwin':
+    #env.AppendUnique(LINKFLAGS = ['-Wl'])
+    pass
+
+# init bullet/SCons wrapper class
+#bullet.init()
+
+
+# add and setup the swig tool
+
+t=Tool('swig')
+
+t.generate(env)
+# put the swig path on the search path
+env.PrependENVPath('PATH',os.path.join(env['BASEPATH'], '3rdparty','swig',sys.platform))
+# # declare the location of the swig library
+env.PrependENVPath('SWIG_LIB',os.path.join(env['BASEPATH'], '3rdparty','swig','Lib'))
+
+env.Replace(CXXFILESUFFIX = '.cxx')
+# set the basic flags for swig
+env.Replace(SWIGFLAGS = ['-python',
+                        '-c++'])
+
+

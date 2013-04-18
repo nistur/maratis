@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6F987382-88C5-4358-93E5-B0FB94A5E85D}</ProjectGuid>
+    <RootNamespace>Maratis</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>..\..\MSDK\MCore\Includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_USRDLL;_MT;MENGINE_DLL;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>build\$(ProjectName)Debug.dll</OutputFile>
+      <AdditionalLibraryDirectories>build;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <ImportLibrary>build\$(ProjectName)Debug.lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>Full</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <AdditionalIncludeDirectories>..\..\MSDK\MCore\Includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_DEPRECATE;MENGINE_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>true</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>build\$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>build;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>NotSet</SubSystem>
+      <OptimizeReferences>
+      </OptimizeReferences>
+      <EnableCOMDATFolding>
+      </EnableCOMDATFolding>
+      <ImportLibrary>build\$(ProjectName).lib</ImportLibrary>
+      <TargetMachine>NotSet</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MLog.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MArmature.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MArmatureAnim.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MArmatureAnimRef.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MBehavior.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MBehaviorCreator.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MBehaviorManager.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MBox3d.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MEngine.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MFont.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MFontRef.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MFrustum.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MFXManager.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MGame.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MKey.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MLevel.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MMaterial.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MMaterialAnim.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MMaterialsAnim.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MMaterialsAnimRef.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MMesh.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MMeshRef.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MMeshTools.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MMorphingData.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MObject3d.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MObject3dAnim.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MOBone.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MOCamera.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MOEntity.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MOLight.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MOSound.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MOText.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MPackageManager.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MRenderer.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MRendererCreator.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MRendererManager.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MScene.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MShaderRef.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MSkinData.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MSoundRef.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MTexture.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MTextureAnim.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MTextureRef.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MTexturesAnim.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MTexturesAnimRef.h" />
+    <ClInclude Include="..\..\MSDK\MEngine\Includes\MVariable.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MLog" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MArmature.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MArmatureAnim.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MArmatureAnimRef.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MBehavior.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MBehaviorCreator.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MBehaviorManager.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MBox3d.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MEngine.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MFont.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MFontRef.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MFrustum.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MFXManager.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MGame.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MKey.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MLevel.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MMaterial.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MMaterialAnim.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MMaterialsAnim.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MMaterialsAnimRef.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MMesh.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MMeshRef.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MMeshTools.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MMorphingData.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MObject3d.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MObject3dAnim.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MOBone.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MOCamera.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MOEntity.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MOLight.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MOSound.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MOText.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MRenderer.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MRendererCreator.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MRendererManager.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MScene.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MShaderRef.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MSkinData.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MSoundRef.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MTextureAnim.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MTextureRef.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MTexturesAnim.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MTexturesAnimRef.cpp" />
+    <ClCompile Include="..\..\MSDK\MEngine\Sources\MVariable.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="MCore.vcxproj">
+      <Project>{ecb337a5-908a-487c-a0f2-9a29e5377521}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

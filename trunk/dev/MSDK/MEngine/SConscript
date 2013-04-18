@@ -1,0 +1,32 @@
+# coding: utf-8
+# MSDK/MEngine framework build Sconscript
+# $LastChangedDate: 2011-02-23 09:27:55 +0000 (Wed, 23 Feb 2011) $
+# $LastChangedBy: davide.bacchet@gmail.com $
+
+
+import os, sys, fnmatch
+import pyutils
+import thirdparty
+
+Import('env')
+env_local = env.Clone()
+
+# include dirs
+env_local.AppendUnique(CPPPATH = ['./Includes',
+                                  '../MCore/Includes'] )
+#additional defines
+env_local.AppendUnique(CPPDEFINES = ['MENGINE_DLL'])
+# lib dirs
+env_local.AppendUnique(LIBPATH = ['../MCore'] )
+# needed libs
+env_local.AppendUnique(LIBS = ['MCore'] )
+
+# get list of files (recursive)
+files = Glob('./Sources/*.c*')
+
+# build library
+mengine_lib  = env_local.SharedLibrary('MEngine',files,RPATH='@rpath/libMEngine.dylib')
+
+
+
+Return('mengine_lib')

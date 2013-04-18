@@ -1,0 +1,35 @@
+# coding: utf-8
+# MSDK/MCore framework build Sconscript
+# $LastChangedDate: 2011-02-23 09:27:55 +0000 (Wed, 23 Feb 2011) $
+# $LastChangedBy: davide.bacchet@gmail.com $
+
+
+import os, sys, fnmatch
+import pyutils
+import thirdparty
+
+Import('env')
+env_local = env.Clone()
+
+# include dirs
+env_local.AppendUnique(CPPPATH = ['./Includes'] )
+#additional defines
+env_local.AppendUnique(CPPDEFINES = ['MCORE_DLL'])
+# lib dirs
+env_local.AppendUnique(LIBPATH = [] )
+# needed libs
+env_local.AppendUnique(LIBS = [] )
+
+# needed 3rdparty
+thirdparty.dirent.addDirentToEnv(env_local)
+
+
+# get list of files
+files = Glob('./Sources/*.c*')
+
+# build library
+mcore_lib  = env_local.SharedLibrary('MCore',files,RPATH='@rpath/libMCore.dylib')
+
+
+
+Return('mcore_lib')

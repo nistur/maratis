@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="MEngine" />
+		<Option pch_mode="2" />
+		<Option compiler="cygwin" />
+		<Build>
+			<Target title="Debug">
+				<Option output="..\..\build\$(platform)\release\MSDK\MEngine\libMEngine" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj\Debug\" />
+				<Option type="2" />
+				<Option compiler="cygwin" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-DWIN32" />
+					<Add directory="..\..\Maratis\Common" />
+					<Add directory="..\..\MSDK\MCore\Includes" />
+					<Add directory="..\..\MSDK\MGui\Includes" />
+					<Add directory="..\..\MSDK\MEngine\Includes" />
+				</Compiler>
+				<Environment>
+					<Variable name="platform" value="cygwin" />
+				</Environment>
+			</Target>
+		</Build>
+		<Unit filename="..\..\MSDK\MEngine\Sources\MArmature.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MArmatureAnim.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MArmatureAnimRef.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MBehavior.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MBehaviorCreator.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MBehaviorManager.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MBox3d.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MEngine.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MFXManager.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MFont.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MFontRef.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MFrustum.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MGame.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MKey.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MLevel.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MLog.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MMaterial.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MMaterialAnim.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MMaterialsAnim.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MMaterialsAnimRef.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MMesh.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MMeshRef.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MMeshTools.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MMorphingData.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MOBone.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MOCamera.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MOEntity.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MOLight.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MOSound.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MOText.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MObject3d.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MObject3dAnim.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MRenderer.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MRendererCreator.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MRendererManager.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MScene.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MShaderRef.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MSkinData.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MSoundRef.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MTextureAnim.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MTextureRef.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MTexturesAnim.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MTexturesAnimRef.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MVariable.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

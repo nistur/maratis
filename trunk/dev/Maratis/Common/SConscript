@@ -1,0 +1,37 @@
+# coding: utf-8
+# Maratis/Common framework build Sconscript
+# $LastChangedDate: 2012-01-22 12:00:08 +0000 (Sun, 22 Jan 2012) $
+# $LastChangedBy: anael.seghezzi@gmail.com $
+
+
+import os, sys, fnmatch
+import pyutils
+import thirdparty
+
+Import('env')
+env_local = env.Clone()
+
+# include dirs
+env_local.AppendUnique(CPPPATH = ['#MSDK/MCore/Includes',
+                                  '#MSDK/MEngine/Includes',
+								  '#MSDK/MGui/Includes',
+								  '#Maratis/Common'] )
+# add 3rdparty libraries parameters
+thirdparty.npk_dev.addNPKDevToEnv(env_local)
+thirdparty.bullet.addBulletToEnv(env_local)
+thirdparty.tinyxml.addTinyXmlToEnv(env_local)
+thirdparty.devil.addDevilToEnv(env_local)
+thirdparty.libsndfile.addLibSndFileToEnv(env_local)
+thirdparty.freetype.addFreetypeToEnv(env_local)
+thirdparty.lua.addLuaToEnv(env_local)
+# those are usually only needed in windows, not osx
+thirdparty.openal.addOpenALToEnv(env_local)
+thirdparty.glee.addGleeToEnv(env_local)
+
+# get list of files 
+files = pyutils.getFilesRecursive(Dir('.').srcnode().abspath,'*.c*')
+
+# build library
+maratiscommon_lib  = env_local.StaticLibrary('MaratisCommon',files)
+Return('maratiscommon_lib')
+

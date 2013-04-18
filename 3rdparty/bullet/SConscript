@@ -1,0 +1,26 @@
+# coding: utf-8
+# bullet build Sconscript
+# $LastChangedDate: 2008-05-12 12:03:21 +0200 (Mon, 12 May 2008) $
+# $LastChangedBy: dbacc $
+
+
+import os, sys, fnmatch
+import pyutils
+
+Import('env')
+env_local = env.Clone()
+
+# include dirs
+env_local.AppendUnique(CPPPATH = ['.'] )
+
+# Relax Compiler errors
+if sys.platform=='linux2':
+    env_local.AppendUnique(CXXFLAGS=['-fpermissive'])
+
+# get list of files (recursive)
+files = pyutils.getFilesRecursive(Dir('.').srcnode().abspath,'*.c*')
+
+# build library
+bullet_lib  = env_local.StaticLibrary('bullet',files)
+Return('bullet_lib')
+

@@ -1,0 +1,42 @@
+# coding: utf-8
+# dev-il build Sconscript
+# $LastChangedDate: 2011-02-12 01:00:52 +0100 (sam., 12 fevr. 2011) $
+# $LastChangedBy: dbacchet $
+
+
+import os, sys, fnmatch
+import pyutils
+
+Import('env')
+env_local = env.Clone()
+
+# include dirs
+env_local.AppendUnique(CPPPATH = ['.',
+                                  './src-IL/include',
+                                  './src-ILU/include',
+                                  '../libpng',
+                                  '../libjpeg',
+								  '../zlib'] )
+# additional defines
+env_local.AppendUnique(CPPDEFINES = 'IL_STATIC_LIB')
+if (env['build_mode']=='debug' and sys.platform=='cygwin'):
+	env_local.AppendUnique(CPPDEFINES = 'IL_NO_UTX')
+
+# lib dirs
+env_local.AppendUnique(LIBPATH = ['../libpng',
+                                  '../libjpeg',
+                                  '../zlib'] )
+
+# get list of files (recursive)
+files = pyutils.getFilesRecursive(Dir('.').srcnode().abspath,'*.c*')
+
+# list of needed libraries
+libs = []
+libs.append('png')
+libs.append('jpeg')
+libs.append('zlib')
+
+# build library
+il_lib  = env_local.StaticLibrary('il',files,LIBS=libs)
+Return('il_lib')
+

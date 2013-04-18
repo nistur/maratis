@@ -1,0 +1,22 @@
+# coding: utf-8
+# zlib build Sconscript
+# $LastChangedDate: 2008-05-12 12:03:21 +0200 (Mon, 12 May 2008) $
+# $LastChangedBy: dbacc $
+
+
+import os, sys, fnmatch
+import pyutils
+
+Import('env')
+env_local = env.Clone()
+
+# include dirs
+env_local.AppendUnique(CPPPATH = ['.'] )
+
+# get list of files
+files = Glob('*.c*')
+
+# build library
+zlib_lib  = env_local.StaticLibrary('zlib',files)
+Return('zlib_lib')
+

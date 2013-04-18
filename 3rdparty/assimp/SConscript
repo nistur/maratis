@@ -1,0 +1,30 @@
+# coding: utf-8
+# assume build Sconscript
+
+
+import os, sys, fnmatch
+import pyutils
+
+Import('env')
+env_local = env.Clone()
+
+# include dirs
+env_local.AppendUnique(CPPPATH = ['.', './include', './code/BoostWorkaround', '../zlib'] )
+
+env_local.AppendUnique(LIBPATH = ['../zlib'] )
+
+# additional defines
+env_local.AppendUnique(CPPDEFINES = ['ASSIMP_BUILD_BOOST_WORKAROUND'])
+env_local.AppendUnique(CPPDEFINES = ['ASSIMP_BUILD_NO_OWN_ZLIB'])
+
+# list of needed libraries
+libs = []
+libs.append('zlib')
+
+# get list of files (recursive)
+files = pyutils.getFilesRecursive(Dir('.').srcnode().abspath,'*.c*')
+
+# build library
+assimp_lib  = env_local.StaticLibrary('assimp',files)
+Return('assimp_lib')
+

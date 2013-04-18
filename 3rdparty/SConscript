@@ -1,0 +1,57 @@
+# coding: utf-8
+# frameworks build Sconscript
+#
+# $LastChangedDate:  $
+# $LastChangedBy: dbacc $
+
+
+import os,sys
+
+Import('env')
+env_local = env.Clone()
+
+
+# build lua
+SConscript( 'lua/SConscript',
+            exports={'env':env_local} )
+
+# build zlib
+SConscript( 'zlib/SConscript',
+            exports={'env':env_local} )
+
+# build libpng
+SConscript( 'libpng/SConscript',
+            exports={'env':env_local} )
+
+# build libjpeg
+SConscript( 'libjpeg/SConscript',
+            exports={'env':env_local} )
+
+# build Dev-IL
+SConscript( 'devil/SConscript',
+            exports={'env':env_local} )
+
+# build Glee	
+SConscript( 'glee/SConscript',
+            exports={'env':env_local} )
+
+# build freetype	
+SConscript( 'freetype/SConscript',
+            exports={'env':env_local} )
+
+# build tinyxml	
+SConscript( 'tinyxml/SConscript',
+            exports={'env':env_local} )
+
+# build bullet	
+SConscript( 'bullet/SConscript',
+            exports={'env':env_local} )
+
+# build npk	
+SConscript( 'npk/SConscript',
+            exports={'env':env_local} )
+
+# build assimp	
+SConscript( 'assimp/SConscript',
+            exports={'env':env_local} )
+

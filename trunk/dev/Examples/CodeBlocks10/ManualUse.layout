@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="..\ManualUse\MyGame.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="1777" topLine="36" />
+	</File>
+	<File name="..\ManualUse\MyGame.h" open="0" top="0" tabpos="3">
+		<Cursor position="1441" topLine="15" />
+	</File>
+	<File name="..\ManualUse\main.cpp" open="1" top="0" tabpos="2">
+		<Cursor position="4205" topLine="139" />
+	</File>
+	<File name="..\..\MSDK\MCore\Sources\MDataLoader.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="1659" topLine="38" />
+	</File>
+	<File name="..\..\MSDK\MEngine\Sources\MLevel.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="2831" topLine="94" />
+	</File>
+	<File name="..\..\MSDK\MEngine\Sources\MLog.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="1569" topLine="34" />
+	</File>
+	<File name="..\..\MSDK\MEngine\Sources\MMeshRef.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="1602" topLine="40" />
+	</File>
+</CodeBlocks_layout_file>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="ManualUse" />
+		<Option pch_mode="2" />
+		<Option compiler="cygwin" />
+		<Build>
+			<Target title="Debug">
+				<Option output="..\..\prod\$(platform)\release\Maratis\Bin\ManualUsed" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="..\..\prod\$(platform)\release\Maratis\Bin" />
+				<Option object_output="obj\Debug\" />
+				<Option type="1" />
+				<Option compiler="cygwin" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-mwin32" />
+					<Add option="-DWIN32" />
+					<Add option="-DMENGINE_DLL" />
+					<Add option="-DDEBUG" />
+					<Add directory="..\..\MSDK\MEngine\Includes" />
+					<Add directory="..\..\MSDK\MCore\Includes" />
+					<Add directory="..\..\MSDK\MGui\Includes" />
+					<Add directory="..\..\Maratis\Common" />
+					<Add directory="..\..\..\..\3rdparty\bullet" />
+					<Add directory="..\..\..\..\3rdparty\lua" />
+				</Compiler>
+				<Linker>
+					<Add option="-Wl,-rpath=@loader_path/." />
+					<Add option="-L../../build/$(platform)/release/Maratis/Common" />
+					<Add option="-lMaratisCommon" />
+					<Add option="-L../../build/$(platform)/release/MSDK/MEngine" />
+					<Add option="-lMEngine" />
+					<Add option="-L../../build/$(platform)/release/MSDK/MCore" />
+					<Add option="-lMCore" />
+					<Add option="-L../../build/$(platform)/release/MSDK/MGui" />
+					<Add option="-lMGui" />
+					<Add option="-L../../build/$(platform)/release/3rdparty/npk" />
+					<Add option="-lnpk_dev" />
+					<Add option="-L../../build/$(platform)/release/3rdparty/lua" />
+					<Add option="-llua" />
+					<Add option="-L../../build/$(platform)/release/3rdparty/bullet" />
+					<Add option="-lbullet" />
+					<Add option="-lopenal" />
+					<Add option="-L../../build/$(platform)/release/3rdparty/glee" />
+					<Add option="-lglee" />
+					<Add option="-L../../build/$(platform)/release/3rdparty/devil" />
+					<Add option="-lil" />
+					<Add option="-L../../build/$(platform)/release/3rdparty/tinyxml" />
+					<Add option="-ltinyxml" />
+					<Add option="-lpng" />
+					<Add option="-ljpeg" />
+					<Add option="-L../../build/$(platform)/release/3rdparty/zlib" />
+					<Add option="-lzlib" />
+					<Add option="-lfreetype -lsndfile -lopengl32 -lUser32 -lShell32 -lGdi32 -lComdlg32 -lWinmm" />
+				</Linker>
+				<Environment>
+					<Variable name="platform" value="cygwin" />
+				</Environment>
+			</Target>
+			<Target title="Release">
+				<Option output="..\..\prod\$(platform)\release\Maratis\Bin\ManualUse" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="..\..\prod\$(platform)\release\Maratis\Bin" />
+				<Option object_output="obj\Release" />
+				<Option type="1" />
+				<Option compiler="cygwin" />
+				<Option use_console_runner="0" />
+				<Compiler>
+					<Add option="-O3" />
+					<Add option="-O2" />
+					<Add option="-O1" />
+					<Add option="-O" />
+					<Add option="-mwin32" />
+					<Add option="-DNDEBUG WIN32" />
+					<Add directory="..\..\MSDK\MEngine\Includes" />
+					<Add directory="..\..\MSDK\MCore\Includes" />
+					<Add directory="..\..\MSDK\MGui\Includes" />
+					<Add directory="..\..\Maratis\Common" />
+					<Add directory="..\..\..\..\3rdparty\bullet" />
+					<Add directory="..\..\..\..\3rdparty\lua" />
+				</Compiler>
+				<Linker>
+					<Add option="-Wl,-rpath=@loader_path/." />
+					<Add option="-L../../build/$(platform)/release/Maratis/Common" />
+					<Add option="-lMaratisCommon" />
+					<Add option="-L../../build/$(platform)/release/MSDK/MEngine" />
+					<Add option="-lMEngine" />
+					<Add option="-L../../build/$(platform)/release/MSDK/MCore" />
+					<Add option="-lMCore" />
+					<Add option="-L../../build/$(platform)/release/MSDK/MGui" />
+					<Add option="-lMGui" />
+					<Add option="-L../../build/$(platform)/release/3rdparty/npk" />
+					<Add option="-lnpk_dev" />
+					<Add option="-L../../build/$(platform)/release/3rdparty/lua" />
+					<Add option="-llua" />
+					<Add option="-L../../build/$(platform)/release/3rdparty/bullet" />
+					<Add option="-lbullet" />
+					<Add option="-lopenal" />
+					<Add option="-L../../build/$(platform)/release/3rdparty/glee" />
+					<Add option="-lglee" />
+					<Add option="-L../../build/$(platform)/release/3rdparty/devil" />
+					<Add option="-lil" />
+					<Add option="-L../../build/$(platform)/release/3rdparty/tinyxml" />
+					<Add option="-ltinyxml" />
+					<Add option="-lpng" />
+					<Add option="-ljpeg" />
+					<Add option="-L../../build/$(platform)/release/3rdparty/zlib" />
+					<Add option="-lzlib" />
+					<Add option="-lfreetype -lsndfile -lopengl32 -lUser32 -lShell32 -lGdi32 -lComdlg32 -lWinmm" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="..\ManualUse\MyGame.cpp" />
+		<Unit filename="..\ManualUse\MyGame.h" />
+		<Unit filename="..\ManualUse\main.cpp" />
+		<Unit filename="..\..\MSDK\MCore\Sources\MDataLoader.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MLevel.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MLog.cpp" />
+		<Unit filename="..\..\MSDK\MEngine\Sources\MMeshRef.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

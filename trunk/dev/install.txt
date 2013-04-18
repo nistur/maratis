@@ -1,0 +1,4 @@
+Make sure you have Python and scons installed,
+
+open a shell and type : "python scons.py"
+after the build, the final product can be found in the "prod/" directory
