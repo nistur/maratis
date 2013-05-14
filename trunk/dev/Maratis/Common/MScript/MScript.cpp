@@ -3766,12 +3766,21 @@ bool MScript::startCallFunction(const char* name)
 {
 	if(m_isRunning)
 	{
-		lua_getglobal(m_state, name);
+		char* fn = new char[strlen(name)];
+		sprintf(fn, name);
+
+		char* tok = strtok(fn, ".:");
+		lua_getglobal(m_state, tok);
+		while(tok = strtok(NULL, ".:"))
+			lua_getfield(m_state, -1, tok);
+
 		if(!lua_isfunction(m_state, -1))
 		{
+			delete[] fn;
 			lua_pop(m_state, 1);
 			return false;
 		}
+		delete[] fn;
 		return true;
 	}
 	return false;
