@@ -46,6 +46,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *  implementation of LightWave envelopes of which I know.
 */
 
+#include <functional>
+
 #include "AssimpPCH.h"
 #if (!defined ASSIMP_BUILD_NO_LWO_IMPORTER) && (!defined ASSIMP_BUILD_NO_LWS_IMPORTER)
 

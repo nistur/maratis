@@ -229,7 +229,8 @@ bool createShape(MOEntity * entity, MPhysicsProperties * phyProps, unsigned int 
 				if(subMeshsNumber == 1)
 				{
 					MSubMesh * subMesh = &subMeshs[0];
-					physics->createConvexHullShape(shapeId, subMesh->getVertices(), subMesh->getVerticesSize(), entity->getScale());
+					if(subMesh->getVerticesSize() > 0)
+						physics->createConvexHullShape(shapeId, subMesh->getVertices(), subMesh->getVerticesSize(), entity->getScale());
 				}
 				else
 				{
@@ -239,8 +240,11 @@ bool createShape(MOEntity * entity, MPhysicsProperties * phyProps, unsigned int 
 					{
 						unsigned int subShapeId;
 						MSubMesh * subMesh = &subMeshs[s];
-						physics->createConvexHullShape(&subShapeId, subMesh->getVertices(), subMesh->getVerticesSize(), entity->getScale());
-						physics->addChildShape(*shapeId, subShapeId, MVector3(), MQuaternion());
+						if(subMesh->getVerticesSize() > 0)
+						{
+							physics->createConvexHullShape(&subShapeId, subMesh->getVertices(), subMesh->getVerticesSize(), entity->getScale());
+							physics->addChildShape(*shapeId, subShapeId, MVector3(), MQuaternion());
+						}
 					}
 				}
 			}
@@ -263,10 +267,11 @@ bool createShape(MOEntity * entity, MPhysicsProperties * phyProps, unsigned int 
 				if(subMeshsNumber == 1)
 				{
 					MSubMesh * subMesh = &subMeshs[0];
-					physics->createTriangleMeshShape(shapeId,
-						subMesh->getVertices(), subMesh->getVerticesSize(),
-						subMesh->getIndices(), subMesh->getIndicesSize(), subMesh->getIndicesType(),
-						entity->getScale()
+					if(subMesh->getVerticesSize() >= 3)
+						physics->createTriangleMeshShape(shapeId,
+							subMesh->getVertices(), subMesh->getVerticesSize(),
+							subMesh->getIndices(), subMesh->getIndicesSize(), subMesh->getIndicesType(),
+							entity->getScale()
 						);
 				}
 				else
@@ -277,12 +282,15 @@ bool createShape(MOEntity * entity, MPhysicsProperties * phyProps, unsigned int 
 					{
 						unsigned int subShapeId;
 						MSubMesh * subMesh = &subMeshs[s];
-						physics->createTriangleMeshShape(&subShapeId,
-							subMesh->getVertices(), subMesh->getVerticesSize(),
-							subMesh->getIndices(), subMesh->getIndicesSize(), subMesh->getIndicesType(),
-							entity->getScale()
-						);
-						physics->addChildShape(*shapeId, subShapeId, MVector3(), MQuaternion());
+						if(subMesh->getVerticesSize() >= 3)
+						{
+							physics->createTriangleMeshShape(&subShapeId,
+								subMesh->getVertices(), subMesh->getVerticesSize(),
+								subMesh->getIndices(), subMesh->getIndicesSize(), subMesh->getIndicesType(),
+								entity->getScale()
+							);
+							physics->addChildShape(*shapeId, subShapeId, MVector3(), MQuaternion());
+						}
 					}
 				}
 			}
@@ -436,7 +444,7 @@ void MScene::prepareConstraints(MOEntity * entity)
 
 	if(! entity->getParent())
 	{
-		MOEntity * constraintParent = getEntityByName(constraint->parentName.getData());
+		MOEntity * constraintParent = getEntityByName(constraint->parentName.getSafeString());
 		if(constraintParent)
 		{
 			MPhysicsProperties * parentPhyProps = constraintParent->getPhysicsProperties();

@@ -157,7 +157,7 @@ void writeVariable(MFile * file, MVariable * variable, const char * workingDirec
 			writeFloat(file, name, *((float*)variable->getPointer()));
 			break;
 		case M_VARIABLE_STRING:
-			writeString(file, name, ((MString*)variable->getPointer())->getData());
+			writeString(file, name, ((MString*)variable->getPointer())->getSafeString());
 			break;
 		case M_VARIABLE_VEC2:
 			writeFloatValues(file, name, *((MVector2*)variable->getPointer()), 2);

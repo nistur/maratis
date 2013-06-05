@@ -17,7 +17,7 @@
 /* #define GCC_X86_ASM */
 
 /* Define to 1 if you have the <dlfcn.h> header file. */
-#define HAVE_DLFCN_H 1
+/* #define HAVE_DLFCN_H 1 */
 
 /* Define to 1 if you have the <GLUT/glut.h> header file. */
 /* #undef HAVE_GLUT_GLUT_H */
@@ -32,10 +32,10 @@
 /* #undef HAVE_GL_GL_H */
 
 /* Define to 1 if you have the <inttypes.h> header file. */
-#define HAVE_INTTYPES_H 1
+/* #define HAVE_INTTYPES_H 1 */
 
 /* Define to 1 if you have the `m' library (-lm). */
-#define HAVE_LIBM 1
+/* #define HAVE_LIBM 1 */
 
 /* Define to 1 if you have the `z' library (-lz). */
 #define HAVE_LIBZ 1
@@ -50,7 +50,7 @@
 /* #undef HAVE_OPENGL_GL_H */
 
 /* Define if you have POSIX threads libraries and header files. */
-#define HAVE_PTHREAD 1
+/* #define HAVE_PTHREAD 1 */
 
 /* Define to 1 if you have the <stdint.h> header file. */
 #define HAVE_STDINT_H 1
@@ -290,7 +290,7 @@
 #define LT_OBJDIR ".libs/"
 
 /* Building on Mac OS X */
-#define MAX_OS_X 
+#define MAX_OS_X
 
 /* define if you have memalign memory allocation */
 /* #undef MEMALIGN */
@@ -336,7 +336,7 @@
 #define SSE2 
 
 /* SSE3 extension found */
-#define SSE3 
+/* #define SSE3 */
 
 /* Define to 1 if you have the ANSI C header files. */
 #define STDC_HEADERS 1

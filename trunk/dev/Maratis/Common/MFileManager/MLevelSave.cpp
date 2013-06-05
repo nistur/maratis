@@ -120,7 +120,7 @@ void writePhysics(MFile * file, MPhysicsProperties * physicsProperties)
 		
 		// parent
 		M_fprintf(file, "\t\t\t\t");
-		writeString(file, "parent", constraint->parentName.getData());
+		writeString(file, "parent", constraint->parentName.getSafeString());
 		M_fprintf(file, "\n");
 		
 		// pivot

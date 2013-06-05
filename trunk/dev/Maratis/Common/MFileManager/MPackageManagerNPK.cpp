@@ -313,7 +313,7 @@ void MPackageManagerNPK::closePackage(MPackage package)
 			m_writable = 0;
 
 		MPackageNPK* pack = (MPackageNPK*)package;
-		npk_package_save(pack->package, pack->filename.getData(), true);
+		npk_package_save(pack->package, pack->filename.getSafeString(), true);
 		npk_package_close(pack->package);
 		delete pack;
 	}

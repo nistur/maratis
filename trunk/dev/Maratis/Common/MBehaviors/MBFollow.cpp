@@ -108,7 +108,7 @@ void MBFollow::update(void)
 
 	MObject3d * parent = getParentObject();
 
-	const char * targetName = m_targetName.getData();
+	const char * targetName = m_targetName.getSafeString();
 	if(strcmp(targetName, "none") == 0)
 		return;
 
