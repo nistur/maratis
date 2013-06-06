@@ -46,9 +46,9 @@ void MBehaviorManager::clear(void)
 	m_behaviors.clear();
 }
 
-void MBehaviorManager::addBehavior(const char * name, int objectFilter, MBehavior * (*getNewBehaviorFunctionPointer)(MObject3d * parentObject))
+void MBehaviorManager::addBehavior(const char * name, int objectFilter, MBehavior * (*getNewBehaviorFunctionPointer)(MObject3d * parentObject), void* userData)
 {
-	MBehaviorCreator * newBCreator = new MBehaviorCreator(name, objectFilter, getNewBehaviorFunctionPointer);
+	MBehaviorCreator * newBCreator = new MBehaviorCreator(name, objectFilter, getNewBehaviorFunctionPointer, userData);
 	m_behaviors.push_back(newBCreator);
 }
 

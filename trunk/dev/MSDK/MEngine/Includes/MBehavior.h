@@ -58,6 +58,9 @@ public:
 	// get copy
 	virtual MBehavior * getCopy(MObject3d * parentObject) = 0;
 
+	// user data
+	virtual void setUserData(void* userData) {}
+
 	// events
 	virtual void update(void) = 0;
 	virtual void draw(void){}

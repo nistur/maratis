@@ -36,7 +36,7 @@ class M_ENGINE_EXPORT MBehaviorCreator
 {
 public:
 
-	MBehaviorCreator(const char * name, int objectFilter, MBehavior * (*getNewBehaviorFunctionPointer)(MObject3d * parentObject));
+	MBehaviorCreator(const char * name, int objectFilter, MBehavior * (*getNewBehaviorFunctionPointer)(MObject3d * parentObject), void* userData);
 	virtual ~MBehaviorCreator(void){}
 
 private:
@@ -46,6 +46,8 @@ private:
 	int m_objectFilter;
 
 	MBehavior * (*m_getNewBehavior)(MObject3d * parentObject);
+
+	void* m_userData;
 
 public:
 
