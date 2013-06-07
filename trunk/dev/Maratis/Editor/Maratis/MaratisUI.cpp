@@ -5,6 +5,7 @@
 
 //========================================================================
 //  Maratis, Copyright (c) 2003-2011 Anael Seghezzi <www.maratis3d.com>
+//  Copyright (c) 2013 Yannick Pflanzer <yp1995@live.de>
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -40,6 +41,7 @@
 #include <MFileManager/MLevelLoad.h>
 #include <tinyxml.h>
 
+#define THEME_PATH_MACRO(a) std::string("gui/" + theme.getPath() + "/" + a ).c_str()
 
 MaratisUI::MaratisUI(void):
 m_needToUpdateEdit(false),
@@ -56,13 +58,22 @@ m_specialEvent(0),
 m_guiColor(0.2f, 0.3f, 0.4f),
 m_fileBrowser(NULL)
 {
-    loadSettings();
-    createGUI();
+
+	loadSettings();
+
+#ifdef WIN32
+	theme.loadTheme("gui\\default.theme");
+#else
+	theme.loadTheme("gui/default.theme");
+#endif
+	
+	createGUI();
+
 	m_text = new MGuiText("", MVector2(), 16, MVector4(1, 1, 1, 0.5f));
 	m_infoText = new MGuiText("", MVector2(), 16, MVector4(1, 1, 1, 0.8f));
-	m_positionImage = new MGuiImage("gui/buttonPosition.tga", MVector2(), MVector2(10, 10), MVector4(1, 1, 1, 0.5f));
-	m_rotationImage = new MGuiImage("gui/buttonRotation.tga", MVector2(), MVector2(10, 10), MVector4(1, 1, 1, 0.5f));
-	m_scaleImage = new MGuiImage("gui/buttonScale.tga", MVector2(), MVector2(10, 10), MVector4(1, 1, 1, 0.5f));
+	m_positionImage = new MGuiImage(std::string("gui/" + theme.getPath() + "/buttonPosition.tga").c_str(), MVector2(), MVector2(10, 10), MVector4(1, 1, 1, 0.5f));
+	m_rotationImage = new MGuiImage(std::string("gui/"+ theme.getPath() + "/buttonRotation.tga").c_str(), MVector2(), MVector2(10, 10), MVector4(1, 1, 1, 0.5f));
+	m_scaleImage = new MGuiImage(std::string("gui/" + theme.getPath() + "/buttonScale.tga").c_str(), MVector2(), MVector2(10, 10), MVector4(1, 1, 1, 0.5f));
 }
 
 MaratisUI::~MaratisUI(void)
@@ -133,7 +144,7 @@ void MaratisUI::addValue(MGuiWindow * window, const char * valueName, M_VAR_TYPE
 	{
 		MGuiButton * button = new MGuiButton(*position + MVector2(28, 0), MVector2(16, 16), color, dVarButtonEvents);
 		button->setMode(MGUI_BUTTON_CHECK);
-		button->setNormalTexture("gui/button.tga");
+		button->setNormalTexture(THEME_PATH_MACRO("button.tga"));
 		button->setHighLightColor(variableColor);
 		button->setPressedColor(valueColor);
 		button->enableVariable(pointer, varType);
@@ -302,7 +313,7 @@ void MaratisUI::editScene(void)
 			m_editWin->addButton(button);
 		}
 
-		image = new MGuiImage("gui/imgCapsuleRight.tga", MVector2((float)textLength, position.y - 8), MVector2(8, 32), imgColor);
+		image = new MGuiImage(THEME_PATH_MACRO("imgCapsuleRight.tga"), MVector2((float)textLength, position.y - 8), MVector2(8, 32), imgColor);
 		m_editWin->addImage(image);
 
 		// add text
@@ -315,7 +326,7 @@ void MaratisUI::editScene(void)
 			MGuiButton * button = new MGuiButton(MVector2(x, position.y), MVector2(16, 16), color, deleteScriptEvents);
 			button->setHighLightColor(highLightColor);
 			button->setPressedColor(pressColor);
-			button->setNormalTexture("gui/buttonDelete.tga");
+			button->setNormalTexture(THEME_PATH_MACRO("buttonDelete.tga"));
 			m_editWin->addButton(button);
 			x -= 20;
 		}
@@ -324,7 +335,7 @@ void MaratisUI::editScene(void)
 		MGuiButton * button = new MGuiButton(MVector2(x, position.y-2), MVector2(16, 16), color, loadScriptEvents);
 		button->setHighLightColor(highLightColor);
 		button->setPressedColor(pressColor);
-		button->setNormalTexture("gui/buttonOpen.tga");
+		button->setNormalTexture(THEME_PATH_MACRO("buttonOpen.tga"));
 		m_editWin->addButton(button);
 
 		position += MVector2(0, ySpace*3);
@@ -533,21 +544,21 @@ void MaratisUI::editObject(MObject3d * object)
 							position += MVector2(0, ySpace);
 
 							// image
-							MGuiImage * image = new MGuiImage("gui/imgAnim.tga", MVector2(5, position.y), MVector2(128, 32), MVector4(0, 0, 0, 0.2f));
+							MGuiImage * image = new MGuiImage(THEME_PATH_MACRO("imgAnim.tga"), MVector2(5, position.y), MVector2(128, 32), MVector4(0, 0, 0, 0.2f));
 							m_editWin->addImage(image);
 
 							// left button
 							MGuiButton * button = new MGuiButton(MVector2(21, position.y + 8), MVector2(16, 16), color, leftAnimIdEvents);
 							button->setHighLightColor(highLightColor);
 							button->setPressedColor(pressColor);
-							button->setNormalTexture("gui/buttonLeft.tga");
+							button->setNormalTexture(THEME_PATH_MACRO("buttonLeft.tga"));
 							m_editWin->addButton(button);
 
 							// right button
 							button = new MGuiButton(MVector2(101, position.y + 8), MVector2(16, 16), color, rightAnimIdEvents);
 							button->setHighLightColor(highLightColor);
 							button->setPressedColor(pressColor);
-							button->setNormalTexture("gui/buttonRight.tga");
+							button->setNormalTexture(THEME_PATH_MACRO("buttonRight.tga"));
 							m_editWin->addButton(button);
 
 							// id
@@ -567,15 +578,15 @@ void MaratisUI::editObject(MObject3d * object)
 							position += MVector2(0, ySpace);
 
 							// image
-							MGuiImage * image = new MGuiImage("gui/imgAnim.tga", MVector2(5, position.y), MVector2(128, 32), MVector4(0.5f, 0.5f, 0.5f, 0.2f));
+							MGuiImage * image = new MGuiImage(THEME_PATH_MACRO("imgAnim.tga"), MVector2(5, position.y), MVector2(128, 32), MVector4(0.5f, 0.5f, 0.5f, 0.2f));
 							m_editWin->addImage(image);
 
 							// left button
-							image = new MGuiImage("gui/buttonLeft.tga", MVector2(21, position.y + 8), MVector2(16, 16), grayColor);
+							image = new MGuiImage(THEME_PATH_MACRO("buttonLeft.tga"), MVector2(21, position.y + 8), MVector2(16, 16), grayColor);
 							m_editWin->addImage(image);
 
 							// right button
-							image = new MGuiImage("gui/buttonRight.tga", MVector2(101, position.y + 8), MVector2(16, 16), grayColor);
+							image = new MGuiImage(THEME_PATH_MACRO("buttonRight.tga"), MVector2(101, position.y + 8), MVector2(16, 16), grayColor);
 							m_editWin->addImage(image);
 
 							// id
@@ -935,7 +946,7 @@ void MaratisUI::editObject(MObject3d * object)
 					MGuiImage * image = new MGuiImage(NULL, MVector2(0, position.y-2), MVector2((float)textLength, 20), imgColor);
 					m_editWin->addImage(image);
 
-					image = new MGuiImage("gui/imgCapsuleRight.tga", MVector2((float)textLength, position.y - 8), MVector2(8, 32), imgColor);
+					image = new MGuiImage(THEME_PATH_MACRO("imgCapsuleRight.tga"), MVector2((float)textLength, position.y - 8), MVector2(8, 32), imgColor);
 					m_editWin->addImage(image);
 
 					// add text
@@ -944,7 +955,7 @@ void MaratisUI::editObject(MObject3d * object)
 					// open font
 					MGuiButton * button = new MGuiButton(MVector2(x, position.y-2), MVector2(16, 16), color, loadFontEvents);
 					button->setHighLightColor(highLightColor);
-					button->setNormalTexture("gui/buttonOpen.tga");
+					button->setNormalTexture(THEME_PATH_MACRO("buttonOpen.tga"));
 					button->setPressedColor(pressColor);
 					m_editWin->addButton(button);
 
@@ -1019,7 +1030,7 @@ void MaratisUI::editObject(MObject3d * object)
 				MBehavior * behavior = object->getBehavior(i);
 
 				// image
-				MGuiImage * image = new MGuiImage("gui/imgBehavior.tga", MVector2(0, position.y - 8), MVector2(256, 32), imgColor);
+				MGuiImage * image = new MGuiImage(THEME_PATH_MACRO("imgBehavior.tga"), MVector2(0, position.y - 8), MVector2(256, 32), imgColor);
 				m_editWin->addImage(image);
 
 				// text
@@ -1040,7 +1051,7 @@ void MaratisUI::editObject(MObject3d * object)
 						button = new MGuiButton(MVector2(218, position.y + 4), MVector2(8, 8), color, downBehaviorEvents);
 						button->setHighLightColor(highLightColor);
 						button->setPressedColor(pressColor);
-						button->setNormalTexture("gui/buttonDown.tga");
+						button->setNormalTexture(THEME_PATH_MACRO("buttonDown.tga"));
 						m_editWin->addButton(button);
 						x -= 20;
 					}
@@ -1050,14 +1061,14 @@ void MaratisUI::editObject(MObject3d * object)
 						button = new MGuiButton(MVector2((float)x, position.y + 4), MVector2(8, 8), color, upBehaviorEvents);
 						button->setHighLightColor(highLightColor);
 						button->setPressedColor(pressColor);
-						button->setNormalTexture("gui/buttonUp.tga");
+						button->setNormalTexture(THEME_PATH_MACRO("buttonUp.tga"));
 						m_editWin->addButton(button);
 					}
 
 					button = new MGuiButton(MVector2(233, position.y), MVector2(16, 16), color, deleteBehaviorEvents);
 					button->setHighLightColor(highLightColor);
 					button->setPressedColor(pressColor);
-					button->setNormalTexture("gui/buttonDelete.tga");
+					button->setNormalTexture(THEME_PATH_MACRO("buttonDelete.tga"));
 					m_editWin->addButton(button);
 
 					// behavior properties
@@ -1132,7 +1143,7 @@ void MaratisUI::editObject(MObject3d * object)
 								MTextureRef** textureRef = (MTextureRef**)variable.getPointer();
 
 								button = new MGuiButton(position + MVector2(17, 4), MVector2(16, 16), MVector4(1), loadTextureEvents);
-								button->setNormalTexture("gui/buttonOpen.tga");
+								button->setNormalTexture(THEME_PATH_MACRO("buttonOpen.tga"));
 								button->setHighLightColor(highLightColor);
 								button->enableVariable(variable.getPointer(), M_VAR_NONE);
 								m_editWin->addButton(button);
@@ -1168,12 +1179,12 @@ void MaratisUI::editObject(MObject3d * object)
 			}
 
 			// behaviors menu
-			MGuiImage * behaviorImage = new MGuiImage("gui/imgAddBehavior.tga", MVector2(0, position.y - 8), MVector2(32, 32), MVector4(0, 0, 0, 0.2f));
+			MGuiImage * behaviorImage = new MGuiImage(THEME_PATH_MACRO("imgAddBehavior.tga"), MVector2(0, position.y - 8), MVector2(32, 32), MVector4(0, 0, 0, 0.2f));
 
 			MBehaviorManager * bManager = MEngine::getInstance()->getBehaviorManager();
 			MGuiMenu * behaviorMenu = new MGuiMenu(position, MVector2(16, 16), color, behaviorMenuEvents);
 
-			behaviorMenu->setNormalTexture("gui/buttonSup.tga");
+			behaviorMenu->setNormalTexture(THEME_PATH_MACRO("buttonSup.tga"));
 			behaviorMenu->setDrawingText(false);
 
 			unsigned int y = 10;
@@ -1639,13 +1650,23 @@ void MaratisUI::createGUI(void)
 	float viewPropHeight = 23;
 
 	// colors
-	MVector4 normalColor(1, 1, 1, 1);
-	MVector4 highLightColor(0.8f, 0.9f, 1, 1);
-	MVector4 pressColor(1, 1, 0.5f, 1);
+	
+	MThemeColor color;
+	
+	color = theme.getNormalColor();
+	MVector4 normalColor(color.r, color.g, color.b, color.a);
+	
+	color = theme.getHighlightColor();
+	MVector4 highLightColor(color.r, color.g, color.b, color.a);
+	
+	color = theme.getPressColor();
+	MVector4 pressColor(color.r, color.g, color.b, color.a);
 
-	MVector4 normalColorA(1, 1, 1, 0.2f);
+	color = theme.getNormalAColor();
+	MVector4 normalColorA(color.r, color.g, color.b, color.a);
 
-	MVector4 menuColor(0.32f, 0.53f, 0.70f, 1.0f);
+	color = theme.getMenuColor();
+	MVector4 menuColor(color.r, color.g, color.b, color.a);
 
 	// head
 	m_headWin = new MGuiWindow(
@@ -1669,7 +1690,7 @@ void MaratisUI::createGUI(void)
 
 	fileMenu->setHighLightColor(highLightColor);
 	fileMenu->setPressedColor(pressColor);
-	fileMenu->setNormalTexture("gui/menuShort.tga");
+	fileMenu->setNormalTexture(THEME_PATH_MACRO("menuShort.tga"));
 	fileMenu->setDrawingText(false);
 
 	addTextButtonToMenu(fileMenu, " New Project", MVector2(0, 10), newProjectEvents);
@@ -1707,7 +1728,7 @@ void MaratisUI::createGUI(void)
 
 	editMenu->setHighLightColor(highLightColor);
 	editMenu->setPressedColor(pressColor);
-	editMenu->setNormalTexture("gui/menuShort.tga");
+	editMenu->setNormalTexture(THEME_PATH_MACRO("menuShort.tga"));
 	editMenu->setDrawingText(false);
 
 	addTextButtonToMenu(editMenu, " Undo", MVector2(0, 10), undoEvents);
@@ -1736,11 +1757,11 @@ void MaratisUI::createGUI(void)
 	//x = 158;
 	x = 280;
 
-	MGuiImage * image = new MGuiImage("gui/sep.png", MVector2(270, 0), MVector2(2, 50), MVector4(1, 1, 1, 0.75f));
+	MGuiImage * image = new MGuiImage(THEME_PATH_MACRO("sep.png"), MVector2(270, 0), MVector2(2, 50), MVector4(1, 1, 1, 0.75f));
 	m_headWin->addImage(image);
 
 	m_mouseButton = addButtonToWindow(
-                                      m_headWin, "gui/buttonMouse.tga", MVector2(x, 17), mouseButtonEvents);
+                                      m_headWin, THEME_PATH_MACRO("buttonMouse.tga"), MVector2(x, 17), mouseButtonEvents);
 
 	m_mouseButton->setMode(MGUI_BUTTON_GROUP);
 	m_mouseButton->enableVariable(&m_mouse, M_VAR_BOOL);
@@ -1748,21 +1769,21 @@ void MaratisUI::createGUI(void)
 	// position
 	x += buttonSpace;
 	m_positionButton = addButtonToWindow(
-                                         m_headWin, "gui/buttonPosition.tga", MVector2(x, 17), positionButtonEvents);
+                                         m_headWin, THEME_PATH_MACRO("buttonPosition.tga"), MVector2(x, 17), positionButtonEvents);
 	m_positionButton->setMode(MGUI_BUTTON_GROUP);
 	m_positionButton->enableVariable(&m_position, M_VAR_BOOL);
 
 	// rotation
 	x += buttonSpace;
 	m_rotationButton = addButtonToWindow(
-                                         m_headWin, "gui/buttonRotation.tga", MVector2(x, 17), rotationButtonEvents);
+                                         m_headWin, THEME_PATH_MACRO("buttonRotation.tga"), MVector2(x, 17), rotationButtonEvents);
 	m_rotationButton->setMode(MGUI_BUTTON_GROUP);
 	m_rotationButton->enableVariable(&m_rotation, M_VAR_BOOL);
 
 	// scale
 	x += buttonSpace;
 	m_scaleButton = addButtonToWindow(
-                                      m_headWin, "gui/buttonScale.tga", MVector2(x, 17), scaleButtonEvents);
+                                      m_headWin, THEME_PATH_MACRO("buttonScale.tga"), MVector2(x, 17), scaleButtonEvents);
 	m_scaleButton->setMode(MGUI_BUTTON_GROUP);
 	m_scaleButton->enableVariable(&m_scale, M_VAR_BOOL);
 
@@ -1786,11 +1807,11 @@ void MaratisUI::createGUI(void)
 	// camera
 	x += 75;
 	buttonSpace = 24;
-	addButtonToWindow(m_headWin, "gui/buttonCamera.tga", MVector2(x, 17), cameraButtonEvents);
+	addButtonToWindow(m_headWin, THEME_PATH_MACRO("buttonCamera.tga"), MVector2(x, 17), cameraButtonEvents);
 
 	// entity
 	x += buttonSpace;
-	addButtonToWindow(m_headWin, "gui/buttonEntity.tga", MVector2(x, 17), entityButtonEvents);
+	addButtonToWindow(m_headWin, THEME_PATH_MACRO("buttonEntity.tga"), MVector2(x, 17), entityButtonEvents);
 
 	// particles
 	//x += buttonSpace;
@@ -1798,21 +1819,21 @@ void MaratisUI::createGUI(void)
 
 	// light
 	x += buttonSpace;
-	addButtonToWindow(m_headWin, "gui/buttonLight.tga", MVector2(x, 17), lightButtonEvents);
+	addButtonToWindow(m_headWin, THEME_PATH_MACRO("buttonLight.tga"), MVector2(x, 17), lightButtonEvents);
 
 	// sound
 	x += buttonSpace;
-	addButtonToWindow(m_headWin, "gui/buttonSound.tga", MVector2(x, 17), soundButtonEvents);
+	addButtonToWindow(m_headWin, THEME_PATH_MACRO("buttonSound.tga"), MVector2(x, 17), soundButtonEvents);
 
 	// text
 	x += buttonSpace;
-	addButtonToWindow(m_headWin, "gui/buttonText.tga", MVector2(x, 17), textButtonEvents);
+	addButtonToWindow(m_headWin, THEME_PATH_MACRO("buttonText.tga"), MVector2(x, 17), textButtonEvents);
 
 
 	// scene menu
 	x += 39;
 	MGuiImage * sceneMenuImg = new MGuiImage(
-                                             "gui/menuLong.tga",
+                                             THEME_PATH_MACRO("menuLong.tga"),
                                              MVector2(x, 9),
                                              MVector2(128, 32),
                                              normalColor);
@@ -1826,7 +1847,7 @@ void MaratisUI::createGUI(void)
 
 	m_sceneMenu->setHighLightColor(highLightColor);
 	m_sceneMenu->setPressedColor(pressColor);
-	m_sceneMenu->setNormalTexture("gui/buttonList.tga");
+	m_sceneMenu->setNormalTexture(THEME_PATH_MACRO("buttonList.tga"));
 	m_sceneMenu->setDrawingText(false);
 
 	m_sceneMenu->getWindowMenu()->setShadow(true);
@@ -1846,7 +1867,7 @@ void MaratisUI::createGUI(void)
 
 	// scene delete
 	x += 82;
-	addButtonToWindow(m_headWin, "gui/buttonDelete.tga", MVector2(x, 17), deleteSceneEvents);
+	addButtonToWindow(m_headWin, THEME_PATH_MACRO("buttonDelete.tga"), MVector2(x, 17), deleteSceneEvents);
 
 	// level properties
 	/*x += 45;
@@ -1856,12 +1877,12 @@ void MaratisUI::createGUI(void)
 	// scene properties
 	x += buttonSpace+16;
 	addButtonToWindow(
-                      m_headWin, "gui/buttonScene.tga", MVector2(x, 17), sceneButtonEvents)->setXScale(32);
+                      m_headWin, THEME_PATH_MACRO("buttonScene.tga"), MVector2(x, 17), sceneButtonEvents)->setXScale(32);
 
 	// game
 	x += 54;
 	addButtonToWindow(
-                      m_headWin, "gui/buttonGame.tga", MVector2(x, 17), gameButtonEvents);
+                      m_headWin, THEME_PATH_MACRO("buttonGame.tga"), MVector2(x, 17), gameButtonEvents);
 
 	// renderer menu
 	x += 32;
@@ -1886,7 +1907,7 @@ void MaratisUI::createGUI(void)
 	m_headWin->addImage(sceneMenuImg);
 	m_headWin->addEditText(m_sceneEdit);
 	m_headWin->addMenu(m_rendererMenu);
-	m_headWin->setNormalTexture("gui/winHead.tga");
+	m_headWin->setNormalTexture(THEME_PATH_MACRO("winHead.tga"));
 	gui->addWindow(m_headWin);
 
 	// edit top
@@ -1902,8 +1923,8 @@ void MaratisUI::createGUI(void)
                                     MVector4(1, 1, 1, 1),
                                     &tabTransformEvents);
 
-	m_tabTransform->setNormalTexture("gui/tabTransform0.tga");
-	m_tabTransform->setPressedTexture("gui/tabTransform1.tga");
+	m_tabTransform->setNormalTexture(THEME_PATH_MACRO("tabTransform0.tga"));
+	m_tabTransform->setPressedTexture(THEME_PATH_MACRO("tabTransform1.tga"));
 	m_tabTransform->setMode(MGUI_BUTTON_GROUP);
 	m_tabTransform->setPressed(true);
 	m_tabTransform->setVisible(false);
@@ -1914,8 +1935,8 @@ void MaratisUI::createGUI(void)
                                      MVector4(1, 1, 1, 1),
                                      &tabPropertiesEvents);
 
-	m_tabProperties->setNormalTexture("gui/tabProperties0.tga");
-	m_tabProperties->setPressedTexture("gui/tabProperties1.tga");
+	m_tabProperties->setNormalTexture(THEME_PATH_MACRO("tabProperties0.tga"));
+	m_tabProperties->setPressedTexture(THEME_PATH_MACRO("tabProperties1.tga"));
 	m_tabProperties->setMode(MGUI_BUTTON_GROUP);
 	m_tabProperties->setVisible(false);
 
@@ -1925,8 +1946,8 @@ void MaratisUI::createGUI(void)
                                    MVector4(1, 1, 1, 1),
                                    &tabBehaviorEvents);
 
-	m_tabBehavior->setNormalTexture("gui/tabBehavior0.tga");
-	m_tabBehavior->setPressedTexture("gui/tabBehavior1.tga");
+	m_tabBehavior->setNormalTexture(THEME_PATH_MACRO("tabBehavior0.tga"));
+	m_tabBehavior->setPressedTexture(THEME_PATH_MACRO("tabBehavior1.tga"));
 	m_tabBehavior->setMode(MGUI_BUTTON_GROUP);
 	m_tabBehavior->setVisible(false);
 
@@ -1936,13 +1957,13 @@ void MaratisUI::createGUI(void)
                                   MVector4(1, 1, 1, 1),
                                   &tabObjectsEvents);
 
-	m_tabObjects->setNormalTexture("gui/tabObjects0.tga");
-	m_tabObjects->setPressedTexture("gui/tabObjects1.tga");
+	m_tabObjects->setNormalTexture(THEME_PATH_MACRO("tabObjects0.tga"));
+	m_tabObjects->setPressedTexture(THEME_PATH_MACRO("tabObjects1.tga"));
 	m_tabObjects->setMode(MGUI_BUTTON_GROUP);
 	m_tabObjects->setVisible(false);
 
 	m_objectListImage = new MGuiImage(
-									  "gui/tabObjects1.tga",
+									  THEME_PATH_MACRO("tabObjects1.tga"),
 									  MVector2(editWidth-30, 3),
 									  MVector2(30, 20),
 									  MVector4(1, 1, 1, 1));
@@ -1958,14 +1979,14 @@ void MaratisUI::createGUI(void)
 	m_tabImage->setVisible(false);
 
 	m_sceneProperties = new MGuiImage(
-                                      "gui/tabScene.tga",
+                                      THEME_PATH_MACRO("tabScene.tga"),
                                       MVector2(0, 3),
                                       MVector2(48, 20),
                                       MVector4(1, 1, 1, 1));
 	m_sceneProperties->setVisible(false);
 
 	m_projProperties = new MGuiImage(
-                                     "gui/tabProject.tga",
+                                     THEME_PATH_MACRO("tabProject.tga"),
                                      MVector2(0, 3),
                                      MVector2(48, 20),
                                      MVector4(1, 1, 1, 1));
@@ -2007,7 +2028,7 @@ void MaratisUI::createGUI(void)
                                MVector4(1, 1, 1, 1),
                                editWinEvents);
 
-	m_editWin->setNormalTexture("gui/winEdit.tga");
+	m_editWin->setNormalTexture(THEME_PATH_MACRO("winEdit.tga"));
 	gui->addWindow(m_editWin);
 
 	// camera win
@@ -2038,7 +2059,7 @@ void MaratisUI::createGUI(void)
                                    MaratisUI::timeLeftWinEvents);
 
 	MGuiImage * timeLeftImg = new MGuiImage(
-                                            "gui/timeLeftEdit.tga",
+                                            THEME_PATH_MACRO("timeLeftEdit.tga"),
                                             MVector2(0, 0),
                                             MVector2(timeLeftWidth, timelineHeight),
                                             MVector4(1, 1, 1, 1));
@@ -2055,7 +2076,7 @@ void MaratisUI::createGUI(void)
 	timeLeftEdit->setSingleLine(true);
 	timeLeftEdit->limitLength(7);
 
-	m_timeLeftWin->setNormalTexture("gui/winTime.tga");
+	m_timeLeftWin->setNormalTexture(THEME_PATH_MACRO("winTime.tga"));
 	m_timeLeftWin->addImage(timeLeftImg);
 	m_timeLeftWin->addEditText(timeLeftEdit);
 	gui->addWindow(m_timeLeftWin);
@@ -2068,7 +2089,7 @@ void MaratisUI::createGUI(void)
                                     timeRightWinEvents);
 
 	MGuiImage * timeRightImg = new MGuiImage(
-                                             "gui/timeRightEdit.tga",
+                                             THEME_PATH_MACRO("timeRightEdit.tga"),
                                              MVector2(0, 0),
                                              MVector2(timeRightWidth, timelineHeight),
                                              MVector4(1, 1, 1, 1));
@@ -2094,7 +2115,7 @@ void MaratisUI::createGUI(void)
 
 	keyButton->setHighLightColor(highLightColor);
 	keyButton->setPressedColor(pressColor);
-	keyButton->setNormalTexture("gui/buttonKey.tga");
+	keyButton->setNormalTexture(THEME_PATH_MACRO("buttonKey.tga"));
 
 	// play button
 	MGuiButton * playButton = new MGuiButton(
@@ -2106,7 +2127,7 @@ void MaratisUI::createGUI(void)
 	playButton->enableVariable(&m_play, M_VAR_BOOL);
 	playButton->setHighLightColor(highLightColor);
 	playButton->setPressedColor(pressColor);
-	playButton->setNormalTexture("gui/buttonPlay.tga");
+	playButton->setNormalTexture(THEME_PATH_MACRO("buttonPlay.tga"));
 	playButton->setMode(MGUI_BUTTON_GROUP);
 
 	// pause button
@@ -2119,7 +2140,7 @@ void MaratisUI::createGUI(void)
 	pauseButton->enableVariable(&m_pause, M_VAR_BOOL);
 	pauseButton->setHighLightColor(highLightColor);
 	pauseButton->setPressedColor(pressColor);
-	pauseButton->setNormalTexture("gui/buttonPause.tga");
+	pauseButton->setNormalTexture(THEME_PATH_MACRO("buttonPause.tga"));
 	pauseButton->setMode(MGUI_BUTTON_GROUP);
 
 	m_timeRightWin->addImage(timeRightImg);
@@ -2127,7 +2148,7 @@ void MaratisUI::createGUI(void)
 	m_timeRightWin->addButton(pauseButton);
 	//m_timeRightWin->addButton(keyButton);
 	m_timeRightWin->addEditText(timeRightEdit);
-	m_timeRightWin->setNormalTexture("gui/winTime.tga");
+	m_timeRightWin->setNormalTexture(THEME_PATH_MACRO("winTime.tga"));
 	gui->addWindow(m_timeRightWin);
 
 	// timeline
@@ -2151,7 +2172,7 @@ void MaratisUI::createGUI(void)
 	m_timelineSlide->setMaxValue((float)maratis->getTimelineMax());
 	m_timelineSlide->setHighLightColor(highLightColor);
 	m_timelineSlide->setPressedColor(pressColor);
-	m_timelineSlide->setNormalTexture("gui/slideTimeline.tga");
+	m_timelineSlide->setNormalTexture(THEME_PATH_MACRO("slideTimeline.tga"));
 	m_timelineSlide->setDirection(MVector2(timelineWidth - m_timelineSlide->getButtonScale().x - 2, 0));
 
 	// time pos edit
@@ -2168,7 +2189,7 @@ void MaratisUI::createGUI(void)
 
 	m_timelineWin->addEditText(m_timePosEdit);
 	m_timelineWin->addSlide(m_timelineSlide);
-	m_timelineWin->setNormalTexture("gui/winTimeline.tga");
+	m_timelineWin->setNormalTexture(THEME_PATH_MACRO("winTimeline.tga"));
 	gui->addWindow(m_timelineWin);
 
 	// keys
@@ -2197,7 +2218,7 @@ void MaratisUI::createGUI(void)
 
 		m_viewMenu->setHighLightColor(highLightColor);
 		m_viewMenu->setPressedColor(pressColor);
-		m_viewMenu->setNormalTexture("gui/buttonList.tga");
+		m_viewMenu->setNormalTexture(THEME_PATH_MACRO("buttonList.tga"));
 		m_viewMenu->setDrawingText(false);
 
 		m_viewMenu->getWindowMenu()->setShadow(true);
