@@ -3773,6 +3773,43 @@ int MScript::function(lua_State * L)
 	return 0;
 }
 
+// This is basically just the same as runScript
+// but will only add to the lua state if it's
+// already running, and doesn't clear/stop
+// the state if it fails
+void MScript::addScript(const char * filename)
+{
+	if( (! m_isRunning) ||
+	    (! filename) ||
+	    (strlen(filename) == 0) )
+	{
+		return;
+	}
+
+	// current directory
+	getRepertory(g_currentDirectory, filename);
+	
+	// read file
+	char * text = readTextFile(filename);
+	if(! text)
+	{
+		printf("ERROR lua script : unable to read file %s\n", filename);
+		return;
+	}
+	
+	// do string
+	if(luaL_dostring(m_state, text) != 0)
+	{
+		printf("ERROR lua script :\n %s\n", lua_tostring(m_state, -1));
+		SAFE_FREE(text);
+		return;
+	}
+	
+	// finish
+	SAFE_FREE(text);
+	m_isRunning = true;
+}
+
 void MScript::runScript(const char * filename)
 {
 	clear();
