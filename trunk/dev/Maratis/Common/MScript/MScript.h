@@ -59,6 +59,7 @@ private :
 public:
 
 	// run script
+	void addScript(const char * filename);
 	void runScript(const char * filename);
 
 	// call function

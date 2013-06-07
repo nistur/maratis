@@ -31,17 +31,23 @@
 #include "../Includes/MEngine.h"
 
 
-MBehaviorCreator::MBehaviorCreator(const char * name, int objectFilter, MBehavior * (*getNewBehaviorFunctionPointer)(MObject3d * parentObject))
+MBehaviorCreator::MBehaviorCreator(const char * name, int objectFilter, MBehavior * (*getNewBehaviorFunctionPointer)(MObject3d * parentObject), void* userData)
 {
 	m_name = name;
 	m_objectFilter = objectFilter;
 	m_getNewBehavior = getNewBehaviorFunctionPointer;
+    m_userData = userData;
 }
 
 MBehavior * MBehaviorCreator::getNewBehavior(MObject3d * parentObject)
 {
 	if(m_getNewBehavior)
-		return m_getNewBehavior(parentObject);
+    {
+        MBehavior* behavior = m_getNewBehavior(parentObject);
+        behavior->setUserData(m_userData);
+
+		return behavior;
+    }
 
 	return NULL;
 }

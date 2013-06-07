@@ -40,6 +40,7 @@ public :
 	virtual ~MScriptContext(void){}
 
 	// run script
+	virtual void addScript(const char * filename) = 0;
 	virtual void runScript(const char * filename) = 0;
 
 	// call function

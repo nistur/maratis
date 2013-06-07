@@ -49,7 +49,7 @@ public:
 	void clear(void);
 
 	// behaviors
-	void addBehavior(const char * name, int objectFilter, MBehavior * (*getNewBehaviorFunctionPointer)(MObject3d * parentObject));
+	void addBehavior(const char * name, int objectFilter, MBehavior * (*getNewBehaviorFunctionPointer)(MObject3d * parentObject), void* userData = NULL);
 	MBehaviorCreator * getBehaviorByName(const char * name);
 
 	inline unsigned int getBehaviorsNumber(void){ return m_behaviors.size(); }

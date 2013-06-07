@@ -7,4 +7,5 @@ wiki/*
 
 trunk/dev/build/*
 trunk/dev/prod/*
-trunk/dev/.sconsign.dblite
+.sconsign.dblite
+*.pyc
