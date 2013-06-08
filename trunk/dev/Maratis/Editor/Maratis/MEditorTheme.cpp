@@ -116,4 +116,30 @@ void MEditorTheme::loadTheme(std::string themefile)
 		 m_menuColor.b = atof(color->Attribute("b"));
 		 m_menuColor.a = atof(color->Attribute("a"));
 	 }
+	 
+	 color = rootNode->FirstChildElement("BackgroundColor");
+	 if(color)
+	 {
+		 m_backgroundColor.r = atof(color->Attribute("r"));
+		 m_backgroundColor.g = atof(color->Attribute("g"));
+		 m_backgroundColor.b = atof(color->Attribute("b"));
+	 }
+	 
+	 color = rootNode->FirstChildElement("ToolbarColor");
+	 if(color)
+	 {
+		 m_toolbarColor.r = atof(color->Attribute("r"));
+		 m_toolbarColor.g = atof(color->Attribute("g"));
+		 m_toolbarColor.b = atof(color->Attribute("b"));
+		 m_toolbarColor.a = atof(color->Attribute("a"));
+	 }
+	 
+	 color = rootNode->FirstChildElement("TitleColor");
+	 if(color)
+	 {
+		 m_titleColor.r = atof(color->Attribute("r"));
+		 m_titleColor.g = atof(color->Attribute("g"));
+		 m_titleColor.b = atof(color->Attribute("b"));
+		 m_titleColor.a = atof(color->Attribute("a"));
+	 }
 }

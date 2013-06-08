@@ -67,6 +67,11 @@ m_fileBrowser(NULL)
 	theme.loadTheme("gui/default.theme");
 #endif
 	
+	MThemeColor color = theme.getBackgroundColor();
+	m_guiColor.x = color.r;
+	m_guiColor.y = color.g;
+	m_guiColor.z = color.b;
+	
 	createGUI();
 
 	m_text = new MGuiText("", MVector2(), 16, MVector4(1, 1, 1, 0.5f));
@@ -190,11 +195,19 @@ void MaratisUI::editProject(void)
 	float headHeight = m_headWin->getScale().y;
 	float viewPropHeight = m_viewProp->getScale().y;
 
+	MThemeColor themeColor;
+
 	MVector4 color(1, 1, 1, 1);
 	MVector4 variableColor(0.66f, 0.76f, 0.87f, 1.0f);
-	MVector4 highLightColor(0.8f, 0.9f, 1, 1);
-	MVector4 menuColor(0.32f, 0.53f, 0.70f, 1.0f);
-	MVector4 pressColor(1, 1, 0.5f, 1);
+	
+	themeColor = theme.getHighlightColor();
+	MVector4 highLightColor(themeColor.r, themeColor.g, themeColor.b, themeColor.a);
+	
+	themeColor = theme.getMenuColor();
+	MVector4 menuColor(themeColor.r, themeColor.g, themeColor.b, themeColor.a);
+	
+	themeColor = theme.getPressColor();
+	MVector4 pressColor(themeColor.r, themeColor.g, themeColor.b, themeColor.a);
 
 	MVector2 position = MVector2(15, 40);
 
@@ -238,9 +251,17 @@ void MaratisUI::editScene(void)
 	float ySpace = 15;
 	MVector4 color(1, 1, 1, 1);
 	MVector4 variableColor(0.66f, 0.76f, 0.87f, 1.0f);
-	MVector4 highLightColor(0.8f, 0.9f, 1, 1);
-	MVector4 menuColor(0.32f, 0.53f, 0.70f, 1.0f);
-	MVector4 pressColor(1, 1, 0.5f, 1);
+	
+	MThemeColor themeColor;
+	
+	themeColor = theme.getHighlightColor();
+	MVector4 highLightColor(themeColor.r, themeColor.g, themeColor.b, themeColor.a);
+	
+	themeColor = theme.getMenuColor();
+	MVector4 menuColor(themeColor.r, themeColor.g, themeColor.b, themeColor.a);
+	
+	themeColor = theme.getPressColor();
+	MVector4 pressColor(themeColor.r, themeColor.g, themeColor.b, themeColor.a);
 
 	MVector2 position = MVector2(15, 40);
 
@@ -345,8 +366,8 @@ void MaratisUI::editScene(void)
 	addVariableName(m_editWin, "data", &position);
 
 	MGuiMenu * dataMenu = new MGuiMenu(position + MVector2(28, 0), MVector2(16, 16), MVector4(1, 1, 1, 0), dataMenuEvents);
-
-	dataMenu->setHighLightColor(MVector4(0.8f, 0.9f, 1, 0.2f));
+	
+	dataMenu->setHighLightColor(highLightColor);
 	dataMenu->setTextColor(MVector4(1, 1, 1, 1));
 
 	dataMenu->addSimpleButton("Static", NULL);
@@ -386,9 +407,15 @@ void MaratisUI::editObject(MObject3d * object)
 	float ySpace = 15;
 	MVector4 color(1, 1, 1, 1);
 	MVector4 variableColor(0.66f, 0.76f, 0.87f, 1.0f);
-	MVector4 highLightColor(0.8f, 0.9f, 1, 1);
-	MVector4 menuColor(0.32f, 0.53f, 0.70f, 1.0f);
-	MVector4 pressColor(1, 1, 0.5f, 1);
+	
+	MThemeColor themeColor = theme.getHighlightColor();
+	MVector4 highLightColor(themeColor.r, themeColor.g, themeColor.b, themeColor.a);
+
+	themeColor = theme.getMenuColor();
+	MVector4 menuColor(themeColor.r, themeColor.g, themeColor.b, themeColor.a);
+	
+	themeColor = theme.getPressColor();
+	MVector4 pressColor(themeColor.r, themeColor.g, themeColor.b, themeColor.a);
 
 	MVector2 position = MVector2(15, 40);
 
@@ -620,7 +647,7 @@ void MaratisUI::editObject(MObject3d * object)
 							position += MVector2(0, ySpace);
 
 							MGuiMenu * menu = new MGuiMenu(MVector2(position.x+10, position.y), MVector2(10, 10), MVector4(1, 1, 1, 0), collisionShapeEvents);
-							menu->setHighLightColor(MVector4(0.8f, 0.9f, 1, 0.2f));
+							menu->setHighLightColor(highLightColor);
 							menu->setTextColor(MVector4(1, 1, 1, 1));
 							menu->addSimpleButton(" Box ", NULL);
 							menu->addSimpleButton(" Sphere ", NULL);
@@ -972,7 +999,7 @@ void MaratisUI::editObject(MObject3d * object)
 
 					MGuiMenu * alignMenu = new MGuiMenu(position + MVector2(28, 0), MVector2(16, 16), MVector4(1, 1, 1, 0), textAlignMenuEvents);
 
-					alignMenu->setHighLightColor(MVector4(0.8f, 0.9f, 1, 0.2f));
+					alignMenu->setHighLightColor(highLightColor);
 					alignMenu->setTextColor(MVector4(1, 1, 1, 1));
 
 					alignMenu->addSimpleButton("Left", NULL);
@@ -1241,7 +1268,7 @@ void MaratisUI::editObject(MObject3d * object)
                 objectButton->setMode(MGUI_BUTTON_SIMPLE);
                 objectButton->setText(name);
                 objectButton->setNormalColor(MVector4(0, 0, 0, 0));
-                objectButton->setHighLightColor(MVector4(0.30, 0.48, 0.62, 1.0));
+                objectButton->setHighLightColor(highLightColor);
                 if (maratis->isObjectSelected(objectAtButton))
                     objectButton->setTextColor(MVector4(1, 1, 0, 1));
                 else
@@ -1268,8 +1295,15 @@ void MaratisUI::editObject(MObject3d * object)
                 objectButton->setMode(MGUI_BUTTON_SIMPLE);
                 objectButton->setText(name);
                 objectButton->setNormalColor(MVector4(0, 0, 0, 0));
-                objectButton->setHighLightColor(MVector4(0.30, 0.48, 0.62, 1.0));
-                if (maratis->isObjectSelected(objectAtButton))
+		
+		MThemeColor themeColor;
+	
+		themeColor = theme.getHighlightColor();
+		MVector4 highLightColor(themeColor.r, themeColor.g, themeColor.b, themeColor.a);
+
+                objectButton->setHighLightColor(highLightColor);
+                
+		if (maratis->isObjectSelected(objectAtButton))
                     objectButton->setTextColor(MVector4(1, 1, 0, 1));
                 else
                     objectButton->setTextColor(MVector4(1, 1, 1, 1));
@@ -1295,8 +1329,13 @@ void MaratisUI::editObject(MObject3d * object)
                 objectButton->setMode(MGUI_BUTTON_SIMPLE);
                 objectButton->setText(name);
                 objectButton->setNormalColor(MVector4(0, 0, 0, 0));
-                objectButton->setHighLightColor(MVector4(0.30, 0.48, 0.62, 1.0));
-                if (maratis->isObjectSelected(objectAtButton))
+		
+		MThemeColor themeColor = theme.getHighlightColor();
+		MVector4 highLightColor(themeColor.r, themeColor.g, themeColor.b, themeColor.a);
+
+                objectButton->setHighLightColor(highLightColor);
+                
+		if (maratis->isObjectSelected(objectAtButton))
                     objectButton->setTextColor(MVector4(1, 1, 0, 1));
                 else
                     objectButton->setTextColor(MVector4(1, 1, 1, 1));
@@ -1322,7 +1361,11 @@ void MaratisUI::editObject(MObject3d * object)
                 objectButton->setMode(MGUI_BUTTON_SIMPLE);
                 objectButton->setText(name);
                 objectButton->setNormalColor(MVector4(0, 0, 0, 0));
-                objectButton->setHighLightColor(MVector4(0.30, 0.48, 0.62, 1.0));
+                
+		MThemeColor themeColor = theme.getHighlightColor();
+		MVector4 highLightColor(themeColor.r, themeColor.g, themeColor.b, themeColor.a);
+
+                objectButton->setHighLightColor(highLightColor);
                 if (maratis->isObjectSelected(objectAtButton))
                     objectButton->setTextColor(MVector4(1, 1, 0, 1));
                 else
@@ -1349,8 +1392,11 @@ void MaratisUI::editObject(MObject3d * object)
                 objectButton->setMode(MGUI_BUTTON_SIMPLE);
                 objectButton->setText(name);
                 objectButton->setNormalColor(MVector4(0, 0, 0, 0));
-                objectButton->setHighLightColor(MVector4(0.30, 0.48, 0.62, 1.0));
-                if (maratis->isObjectSelected(objectAtButton))
+		
+		MThemeColor themeColor = theme.getHighlightColor();
+		MVector4 highLightColor(themeColor.r, themeColor.g, themeColor.b, themeColor.a);
+		
+		if (maratis->isObjectSelected(objectAtButton))
                     objectButton->setTextColor(MVector4(1, 1, 0, 1));
                 else
                     objectButton->setTextColor(MVector4(1, 1, 1, 1));
@@ -1467,9 +1513,12 @@ void MaratisUI::setTransformMode(M_TRANSFORM_MODE mode)
 
 void MaratisUI::addTextButtonToMenu(MGuiMenu * menu, const char * text, MVector2 position, void (* buttonPointerEvent)(MGuiButton * button, MGuiEvent * guiEvents))
 {
-	MVector4 normalColor(0.8f, 0.9f, 1, 0.0f);
-	MVector4 highLightColor(0.8f, 0.9f, 1, 0.2f);
+	MThemeColor themeColor = theme.getHighlightColor();
+	MVector4 highLightColor(themeColor.r, themeColor.g, themeColor.b, themeColor.a);
 
+	themeColor = theme.getMenuColor();
+	MVector4 normalColor(themeColor.r, themeColor.g, themeColor.b, themeColor.a);
+	
 	MGuiButton * newButton = new MGuiButton(
                                             position, MVector2(), normalColor,
                                             buttonPointerEvent);
@@ -1494,8 +1543,12 @@ MGuiButton * MaratisUI::addButtonToWindow(MGuiWindow * window, const char * text
 {
 	// colors
 	MVector4 normalColor(1, 1, 1, 1);
-	MVector4 highLightColor(0.8f, 0.9f, 1, 1);
-	MVector4 pressColor(1, 1, 0.5f, 1);
+	
+	MThemeColor themeColor = theme.getHighlightColor();
+	MVector4 highLightColor(themeColor.r, themeColor.g, themeColor.b, themeColor.a);
+	
+	themeColor = theme.getPressColor();
+	MVector4 pressColor(themeColor.r, themeColor.g, themeColor.b, themeColor.a);
 
 	MGuiButton * newButton = new MGuiButton(
                                             position, MVector2(16, 16), normalColor,
@@ -1796,7 +1849,7 @@ void MaratisUI::createGUI(void)
                                         NULL);
 
 	worldMenu->enableVariable(&m_worldMenu, M_VAR_INT);
-	worldMenu->setHighLightColor(MVector4(0.8f, 0.9f, 1, 0.2f));
+	worldMenu->setHighLightColor(highLightColor);
 	worldMenu->setTextColor(MVector4(1, 1, 1, 1));
 	worldMenu->addSimpleButton(" Global ", worldButtonEvents);
 	worldMenu->addSimpleButton(" Local ", localButtonEvents);
@@ -1892,7 +1945,7 @@ void MaratisUI::createGUI(void)
                                              MVector4(1, 1, 1, 0),
                                              rendererMenuEvents);
 
-	m_rendererMenu->setHighLightColor(MVector4(0.8f, 0.9f, 1, 0.2f));
+	m_rendererMenu->setHighLightColor(highLightColor);
 	m_rendererMenu->setTextColor(MVector4(1, 1, 1, 1));
 	m_rendererMenu->getWindowMenu()->setShadow(true);
 	m_rendererMenu->getWindowMenu()->setNormalColor(menuColor);
@@ -1910,11 +1963,13 @@ void MaratisUI::createGUI(void)
 	m_headWin->setNormalTexture(THEME_PATH_MACRO("winHead.tga"));
 	gui->addWindow(m_headWin);
 
+	MThemeColor themeColor = theme.getTitleColor();
+	
 	// edit top
 	m_editTopWin = new MGuiWindow(
                                   MVector2(0, headHeight),
                                   MVector2(editWidth, viewPropHeight*2),
-                                  MVector4(40/255.0f, 95/255.0f, 138/255.0f, 1),
+                                  MVector4(themeColor.r, themeColor.g, themeColor.b, themeColor.a),
                                   editTopWinEvents);
 
 	m_tabTransform = new MGuiButton(
@@ -1969,12 +2024,13 @@ void MaratisUI::createGUI(void)
 									  MVector4(1, 1, 1, 1));
 	m_objectListImage->setVisible(false);
 
+	themeColor = theme.getBackgroundColor();
 
 	m_tabImage = new MGuiImage(
                                NULL,
                                MVector2(0, viewPropHeight),
                                MVector2(editWidth, viewPropHeight),
-                               MVector4(0.294f, 0.474f, 0.619f, 1));
+                               MVector4(themeColor.r, themeColor.g, themeColor.b, themeColor.a));
 
 	m_tabImage->setVisible(false);
 
@@ -2203,10 +2259,11 @@ void MaratisUI::createGUI(void)
 
 	// view properties
 	{
+		themeColor = theme.getToolbarColor();
 		m_viewProp = new MGuiWindow(
                                     MVector2(editWidth, headHeight),
                                     MVector2(winWidth - editWidth, viewPropHeight),
-                                    MVector4(0.2f, 0.27f, 0.35f, 1.0f),
+                                    MVector4(themeColor.r, themeColor.g, themeColor.b, themeColor.a),
                                     NULL);
 
 		// view menu
