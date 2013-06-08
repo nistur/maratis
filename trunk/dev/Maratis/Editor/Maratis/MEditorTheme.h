@@ -42,6 +42,9 @@ class MEditorTheme
 	struct MThemeColor m_pressColor;
 	struct MThemeColor m_normalaColor;
 	struct MThemeColor m_menuColor;
+	struct MThemeColor m_backgroundColor;
+	struct MThemeColor m_toolbarColor;
+	struct MThemeColor m_titleColor;
 	
 public:
 	MEditorTheme();
@@ -55,6 +58,9 @@ public:
 	struct MThemeColor getPressColor() {return m_pressColor;}
 	struct MThemeColor getNormalAColor() {return m_normalaColor;}
 	struct MThemeColor getMenuColor() {return m_menuColor;}
+	struct MThemeColor getBackgroundColor() {return m_backgroundColor;}
+	struct MThemeColor getToolbarColor() {return m_toolbarColor;}
+	struct MThemeColor getTitleColor() {return m_titleColor;}
 };
 
 #endif
