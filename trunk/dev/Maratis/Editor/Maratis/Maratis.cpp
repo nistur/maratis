@@ -57,6 +57,7 @@
 #include <MFileManager/MMeshLoad.h>
 #include <MFileManager/MMeshSave.h>
 #include <MFileManager/MPackageManagerNPK.h>
+#include <MFileManager/MSaveFileImpl.h>
 #include <MProject/MProject.h>
 #include <MRenderers/MStandardRenderer.h>
 #include <MRenderers/MFixedRenderer.h>
@@ -484,6 +485,8 @@ void Maratis::start(void)
 				m_renderer = new MFixedRenderer();
 		}
 		engine->setRenderer(m_renderer);
+
+		engine->setSaveFileFactory(MSaveFileImpl::getNew);
 	}
 
 	// view entities

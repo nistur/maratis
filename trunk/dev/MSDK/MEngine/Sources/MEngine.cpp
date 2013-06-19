@@ -180,3 +180,8 @@ void MEngine::loadLevelIfRequested()
 	loadLevel(m_requestedLevelToLoad);
 	SAFE_FREE(m_requestedLevelToLoad);
 }
+
+void MEngine::setSaveFileFactory(newSaveFileFactory factory)
+{
+	m_saveFileFactory = factory;
+}
