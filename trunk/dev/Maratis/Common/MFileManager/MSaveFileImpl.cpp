@@ -1,5 +1,7 @@
 #include "MSaveFileImpl.h"
 
+static const char* IDENT = "MSDK";
+
 enum MSaveType
 {
     eInt,
@@ -126,12 +128,15 @@ void MSaveFileImpl::save()
         saveXML();
     else
         saveBinary();
+
+    m_isDirty = false;
 }
 
 void MSaveFileImpl::load()
 {
+    m_isDirty = false;
     if(loadXML() || loadBinary())
-        m_isDirty = false;
+        {} // moved m_isDirty = false from here because we set it to true inside sometimes
     else // failed, so make sure we save next time
         m_isDirty = true;
 }
@@ -156,14 +161,93 @@ bool MSaveFileImpl::loadXML()
     xmlAddElement(rootNode->FirstChildElement(), path);
 
     if(m_mode == M_SAVE_FILE_MODE_ANY)
+    {
         m_mode = M_SAVE_FILE_MODE_TEXT;
+        m_isDirty = true;
+    }
      
     return true;
 }
 
 bool MSaveFileImpl::loadBinary()
 {
-    return false;
+    FILE* fp = fopen(m_filename, "rb");
+    if(!fp) return false;
+
+    fseek(fp, 0L, SEEK_END);
+    long size = ftell(fp);
+    rewind(fp);
+
+    char* buffer = new char[size];
+
+    if(fread(buffer, 1, size, fp) != size)
+    {
+        fclose(fp);
+        delete[] buffer;
+        return false;
+    }
+    fclose(fp);
+
+    // file loaded, now read data
+    // first, the ident
+    if(memcmp(buffer, IDENT, 4) != 0)
+    {
+        delete [] buffer;
+        return false;
+    }
+
+    char* pBuffer = buffer + 4;
+
+    // first thing in the buffer is the amount of values
+    int count = *(int*)pBuffer;
+    pBuffer += sizeof(int);
+
+    for(int i = 0; i < count; ++i)
+    {
+        char* pElem = pBuffer;
+
+        int next = *(int*)pElem;
+        pElem += sizeof(int);
+        int dataOffset = *(int*)pElem;
+        pElem += sizeof(int);
+        MSaveType type = *(MSaveType*)pElem;
+        pElem += sizeof(MSaveType);
+
+        int nameSize = dataOffset - (2*sizeof(int))  - sizeof(MSaveType);
+        char* name = new char[nameSize+1];
+        memcpy(name, pElem, nameSize);
+        name[nameSize] = 0;
+        pElem = pBuffer + dataOffset;
+
+        switch(type)
+        {
+            case eInt:
+            setInt(name, *(int*)pElem);
+            break;
+            case eFloat:
+            setFloat(name, *(float*)pElem);
+            break;
+            case eString:
+            // meh. Maybe I should just null terminate the string in the file?
+            int valSize = next - dataOffset;
+            char* val = new char[valSize + 1];
+            memcpy(val, pElem, valSize);
+            val[valSize] = 0;
+            setString(name, val);
+            break;
+        }
+        delete [] name;
+
+        pBuffer = pBuffer + next;
+    }
+
+    delete[] buffer;
+    if(m_mode == M_SAVE_FILE_MODE_ANY)
+    {
+        m_mode = M_SAVE_FILE_MODE_BINARY;
+        m_isDirty = true;
+    }
+    return true;
 }
 
 void MSaveFileImpl::saveXML()
@@ -200,11 +284,55 @@ void MSaveFileImpl::saveXML()
     }
 
     doc.SaveFile(m_filename);
+
+    if(m_mode == M_SAVE_FILE_MODE_ANY)
+        m_mode = M_SAVE_FILE_MODE_TEXT;
 }
 
 void MSaveFileImpl::saveBinary()
 {
+    FILE* fp = fopen(m_filename, "wb");
+    if(fp == NULL)
+        return;
 
+    // first thing, write the ident
+    fwrite(IDENT, 1, 4, fp);
+
+    // write how many values we have
+    int count = m_values.size();
+    fwrite(&count, sizeof(int), 1, fp);
+
+    // write the values
+    for(std::map<string, _MSaveValue*>::iterator iVal = m_values.begin();
+        iVal != m_values.end();
+        ++iVal)
+    {
+        // TODO: make this 32/64 bit safe
+        int size = (sizeof(int) * 2) + sizeof(MSaveType) + iVal->first.length();
+        int dataOffset = size;
+        switch(iVal->second->type)
+        {
+            case eInt:
+                size += sizeof(int);
+            break;
+            case eFloat:
+                size += sizeof(float);
+            break;
+            case eString:
+                size += strlen((char*)iVal->second->value);
+            break;
+        }
+        fwrite(&size, sizeof(int), 1, fp);
+        fwrite(&dataOffset, sizeof(int), 1, fp);
+        // write the type
+        fwrite(&iVal->second->type, sizeof(MSaveType), 1, fp);
+        fwrite(iVal->first.c_str(), sizeof(char), iVal->first.length(), fp);
+        fwrite(iVal->second->value, 1, size - dataOffset, fp);
+    }
+
+    fclose(fp);
+
+    m_mode = M_SAVE_FILE_MODE_BINARY;
 }
 
 void MSaveFileImpl::xmlAddElement(TiXmlElement* elem, string path)
