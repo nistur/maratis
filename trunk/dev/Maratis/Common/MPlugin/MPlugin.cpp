@@ -55,6 +55,8 @@ MPlugin::~MPlugin(void)
 		FunctionPtr function = (FunctionPtr)dlsym(m_library, "EndPlugin");
 		if(function)
 			function();
+		else
+			printf("%s\n", dlerror());
 		dlclose(m_library);
 		
 #endif
@@ -72,11 +74,16 @@ void MPlugin::load(const char * filename)
     FunctionPtr function = reinterpret_cast<FunctionPtr>(GetProcAddress(m_library, "StartPlugin"));
 #else
 	
-	m_library = dlopen(filename, RTLD_LAZY);
+	m_library = dlopen(filename, RTLD_NOW);
 	if(! m_library)
+	{
+		printf("%s\n", dlerror());
 		return;
+	}
 	
 	FunctionPtr function = (FunctionPtr)dlsym(m_library, "StartPlugin");
+	if(! function)
+		printf("%s\n", dlerror());
 #endif
 
 	if(! function)
