@@ -149,8 +149,6 @@ class MMaterialsAnimRef;
 #include "MLevel.h"
 #include "MGame.h"
 
-#include "MSaveFile.h"
-
 
 class M_ENGINE_EXPORT MEngine
 {
@@ -205,8 +203,6 @@ private:
 
 	// stores the name of the level to load when loading is save
 	char * m_requestedLevelToLoad;
-
-	newSaveFileFactory m_saveFileFactory;
 	
 private:
 	
@@ -272,9 +268,6 @@ public:
 	void setRenderer(MRenderer * renderer);
 	inline MRenderer * getRenderer(void){ return m_renderer; }
 
-	void setSaveFileFactory(newSaveFileFactory factory);
-	inline MSaveFile* getNewSaveFile(const char* filename, MSaveFileMode mode) 
-	{ return m_saveFileFactory ? m_saveFileFactory(filename, mode) : NULL; }
 };
 
 

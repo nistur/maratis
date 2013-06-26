@@ -45,7 +45,6 @@
 #include <MFileManager/MMeshLoad.h>
 #include <MFileManager/MLevelLoad.h>
 #include <MFileManager/MPackageManagerNPK.h>
-#include <MFileManager/MSaveFileImpl.h>
 #include <MRenderers/MStandardRenderer.h>
 #include <MRenderers/MFixedRenderer.h>
 
@@ -157,9 +156,6 @@ void MaratisPlayer::start(void)
 		if(m_renderer == NULL)
 			m_renderer = new MStandardRenderer();
 		engine->setRenderer(m_renderer);
-
-
-		engine->setSaveFileFactory(MSaveFileImpl::getNew);
 	}
 }
 

@@ -57,7 +57,6 @@
 #include <MFileManager/MMeshLoad.h>
 #include <MFileManager/MMeshSave.h>
 #include <MFileManager/MPackageManagerNPK.h>
-#include <MFileManager/MSaveFileImpl.h>
 #include <MProject/MProject.h>
 #include <MRenderers/MStandardRenderer.h>
 #include <MRenderers/MFixedRenderer.h>
@@ -486,7 +485,6 @@ void Maratis::start(void)
 		}
 		engine->setRenderer(m_renderer);
 
-		engine->setSaveFileFactory(MSaveFileImpl::getNew);
 	}
 
 	// view entities
@@ -598,12 +596,13 @@ void Maratis::loadGamePlugin(void)
 	char gameFile[256];
 
 	#ifdef WIN32
-		getGlobalFilename(gameFile, window->getWorkingDirectory(), "Game.dll");
+		const char* platformGameFile = "Game.dll";
 	#elif __APPLE__
-		getGlobalFilename(gameFile, window->getWorkingDirectory(), "Game.dylib");
+		const char* platformGameFile = "Game.dylib";
 	#elif linux
-		getGlobalFilename(gameFile, window->getWorkingDirectory(), "Game.so");
+		const char* platformGameFile = "Game.so";
 	#endif
+		getGlobalFilename(gameFile, window->getWorkingDirectory(), platformGameFile);
 
 	// try to load any other plugins in the game directory first
 	// as the game may expect these to be loaded
@@ -613,7 +612,7 @@ void Maratis::loadGamePlugin(void)
 		iFile != files.end();
 		iFile++)
 	{
-		if(*iFile == gameFile)
+		if(strcmp(iFile->c_str(), platformGameFile) == 0)
 			continue;
 
 		#ifdef WIN32
