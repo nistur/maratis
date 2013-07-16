@@ -304,10 +304,10 @@ MFileOpenHook* M_getFileOpenHook()
 
 MFile * M_fopen(const char * path, const char * mode)
 {
-	MFile * rtn;
+	MFile * rtn = NULL;
 	if(s_fileOpenHook)
 		rtn = s_fileOpenHook->open(path, mode);
-	else
+	if(rtn == NULL)
 		rtn = MStdFile::getNew(path, mode);
 	
 	// if all loading failed, return 0

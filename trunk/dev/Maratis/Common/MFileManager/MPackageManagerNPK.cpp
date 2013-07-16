@@ -136,22 +136,22 @@ public:
  *-------------------------------------------------------------------------------*/
 MFile* MPackageFileOpenHook::open(const char* path, const char* mode)
 {
+	// let other things handle writable files
+	if(strstr(mode, "w") != 0)
+		return NULL;
+
 	MEngine* engine = MEngine::getInstance();
 	MSystemContext * system = engine->getSystemContext();
 	
 	char localFilename[256];
 	getLocalFilename(localFilename, system->getWorkingDirectory(), path);
 	
-	
-	if(strstr(mode, "w") != 0)
-		return MStdFile::getNew(path, mode);
-	
 	// look within the package for a file with the requested name
 	if(MPackageEnt ent = engine->getPackageManager()->findEntity(localFilename))
 		return MPackageFile::getNew(ent);
 	
-	// give up, just look for a new file using stdio
-	return MStdFile::getNew(path, mode);
+	// give up, let whatever is under this have a go
+	return NULL;
 }
 
 /*--------------------------------------------------------------------------------
