@@ -35,6 +35,7 @@ class MPackageFileOpenHook : public MFileOpenHook
 {
 public:
 	MFile* open(const char* path, const char* mode);
+	bool readDirectory(const char * filename, vector<string> * files, bool hiddenFiles, bool recursive);
 };
 
 /*--------------------------------------------------------------------------------
@@ -73,6 +74,8 @@ public:
 	void		closePackage(MPackage package);
 	MPackageEnt addFileToPackage(const char* filename, MPackage package, const char* entityName);
 	MPackage	mountPackage(MPackage package);
+
+	bool readDirectory(const char * filename, vector<string> * files, bool hiddenFiles, bool recursive);
 };
 
 #endif

@@ -34,7 +34,7 @@
 #include <npk.h>
 #include <npk_dev.h>
 
-#define M_MAX_PACKAGES 1
+#define M_MAX_PACKAGES 32
 
 int teakey[4] = { 0,0,0,0 };
 
@@ -152,6 +152,16 @@ MFile* MPackageFileOpenHook::open(const char* path, const char* mode)
 	
 	// give up, let whatever is under this have a go
 	return NULL;
+}
+/*--------------------------------------------------------------------------------*/
+bool MPackageFileOpenHook::readDirectory(const char * filename, vector<string> * files, bool hiddenFiles, bool recursive)
+{
+	MEngine* engine = MEngine::getInstance();
+	MSystemContext * system = engine->getSystemContext();
+	
+	char localFilename[256];
+	getLocalFilename(localFilename, system->getWorkingDirectory(), filename);
+	return engine->getPackageManager()->readDirectory(localFilename, files, hiddenFiles, recursive);
 }
 
 /*--------------------------------------------------------------------------------
@@ -350,4 +360,37 @@ MPackage MPackageManagerNPK::mountPackage(MPackage package)
 	// loaded the package, now save it for later access
 	m_packages[pkgNum] = pack;
 	return pack;
+}
+
+bool MPackageManagerNPK::readDirectory(const char * filename, vector<string> * files, bool hiddenFiles, bool recursive)
+{
+	if(files == 0 || filename == 0) return false;
+
+	bool rtn = false;
+	for(int i = 0; i < M_MAX_PACKAGES; ++i)
+	{
+		if(m_packages[i] == 0)
+			continue;
+
+		MPackageNPK* package = ((MPackageNPK*)m_packages[i]);
+		NPK_ENTITY ent = npk_package_get_first_entity(package->package);
+		while(ent)
+		{
+			string entPath = npk_entity_get_name(ent);
+			int iPath = entPath.find(filename);
+			if(iPath == 0) // if the requested path matches the beginning
+			{
+				// TODO: Add recursive filters
+				char localFilename[256];
+				getLocalFilename(localFilename, filename, entPath.c_str());
+				files->push_back(localFilename);
+
+				// found one, can return true
+				rtn = true;
+			}
+
+			ent = npk_entity_next(ent);
+		}
+	}
+	return rtn;
 }

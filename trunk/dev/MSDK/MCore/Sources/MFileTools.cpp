@@ -253,7 +253,7 @@ bool readDirectory(const char * filename, vector<string> * files, bool hiddenFil
 {
 	DIR * pdir = opendir(filename);
 	if(! pdir)
-		return false;
+		return s_fileOpenHook ? s_fileOpenHook->readDirectory(filename, files, hiddenFiles, recursive) : false;
 
 	dirent * pent = NULL;
     while(pent = readdir(pdir))
@@ -289,6 +289,9 @@ bool readDirectory(const char * filename, vector<string> * files, bool hiddenFil
     }
 	
     closedir(pdir);
+    // add any files provided by the open hook to the list
+    if(s_fileOpenHook)
+    	s_fileOpenHook->readDirectory(filename, files, hiddenFiles, recursive);
     return true;
 }
 

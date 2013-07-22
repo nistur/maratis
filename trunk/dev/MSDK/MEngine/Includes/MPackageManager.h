@@ -63,6 +63,9 @@ public:
 	virtual void		closePackage(MPackage package) = 0;
 	virtual MPackageEnt addFileToPackage(const char * filename, MPackage package, const char * entityName) = 0;
 	virtual MPackage	mountPackage(MPackage package) = 0;
+
+	//list contents of package
+	virtual bool readDirectory(const char * filename, vector<string> * files, bool hiddenFiles, bool recursive) = 0;
 };
 
 #endif

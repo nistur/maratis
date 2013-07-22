@@ -60,6 +60,7 @@ class M_CORE_EXPORT MFileOpenHook
 public:
 	virtual ~MFileOpenHook(void){}
 	virtual MFile * open(const char * path, const char * mode) = 0;
+	virtual bool readDirectory(const char * filename, vector<string> * files, bool hiddenFiles, bool recursive) { return false; }
 };
 
 #endif
