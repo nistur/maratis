@@ -3854,6 +3854,17 @@ void MScript::runScript(const char * filename)
 	m_isRunning = true;
 }
 
+void MScript::parse(const char* script)
+{
+	if(script == NULL) return;
+	if(*script == NULL) return;
+	if(m_state == NULL) return;
+	if(!m_isRunning) return;
+
+	if(luaL_dostring(m_state, script) != 0)
+		printf("ERROR lua script :\n %s\n", lua_tostring(m_state, -1));
+}
+
 bool MScript::startCallFunction(const char* name)
 {
 	if(m_isRunning)
@@ -3895,8 +3906,31 @@ void MScript::callFunction(const char * name)
 		endCallFunction();
 }
 
-void MScript::addFunction(const char * name, int (*function)(void)){
+void MScript::addFunction(const char * name, CFunction function){
 	m_functions[name] = function;
+}
+
+int MScript::getNumCFunctions()
+{
+	return m_functions.size();
+}
+
+MScriptContext::CFunction MScript::getCFunction(int id, char* name)
+{
+	int i = 0;
+	for(map<string, CFunction>::iterator iFn = m_functions.begin();
+		iFn != m_functions.end();
+		++iFn)
+	{
+		if(i == id)
+		{
+			if(name)
+				sprintf(name, "%s", iFn->first.c_str());
+			return iFn->second;
+		}
+		++i;
+	}
+	return NULL;
 }
 
 unsigned int MScript::getArgsNumber(void){

@@ -71,6 +71,9 @@
 // assimp loader
 #include "../MLoaders/MAssimpMeshLoader.h"
 
+// editor specific script API
+#include "../MScript/MEditorAPI.h"
+
 
 // add ext if not
 void fileExtension(char * out, const char * in, const char * ext)
@@ -501,6 +504,15 @@ void Maratis::start(void)
 	m_lightEntity = new MOEntity	(loadEditorMesh("gui/meshs/light.mesh"));
 	m_cameraEntity = new MOEntity	(loadEditorMesh("gui/meshs/camera.mesh"));
 	m_soundEntity = new MOEntity	(loadEditorMesh("gui/meshs/sound.mesh"));
+
+	// add editor specific script functions
+	{
+		m_script->addFunction("isEditor", Editor_IsEditor);
+		
+		m_script->addFunction("openPackage", Editor_OpenPackage);
+		m_script->addFunction("closePackage", Editor_ClosePackage);
+		m_script->addFunction("packageAddFile", Editor_PackageAddFile);
+	}
 }
 
 void Maratis::clear(void)
@@ -615,24 +627,28 @@ void Maratis::loadGamePlugin(void)
 		if(strcmp(iFile->c_str(), platformGameFile) == 0)
 			continue;
 
-		#ifdef WIN32
-			if(iFile->find(".dll") != string::npos)
-		#elif __APPLE__
-			if(iFile->find(".dylib") != string::npos)
-		#elif linux
-			if(iFile->find(".so") != string::npos)
-		#endif
-			{
-				char pluginPath[256];
+	#ifdef WIN32
+		string ext = ".dll";
+	#elif __APPLE__
+		string ext = ".dylib";
+	#elif linux
+		string ext = ".so";
+	#endif
+		int extPos = iFile->find(ext);
+		int expectedExtPos = iFile->length() - ext.length();
+		// check that we've got the extension and it's the end of the filename
+		if(extPos != string::npos && extPos == expectedExtPos)
+		{
+			char pluginPath[256];
 
-				getGlobalFilename(pluginPath, window->getWorkingDirectory(), iFile->c_str());
-				MPlugin* plugin = new MPlugin();
-				plugin->load(pluginPath);
-				if(plugin->getFilename())
-					m_plugins.push_back(plugin);
-				else
-					SAFE_DELETE(plugin);
-			}
+			getGlobalFilename(pluginPath, window->getWorkingDirectory(), iFile->c_str());
+			MPlugin* plugin = new MPlugin();
+			plugin->load(pluginPath);
+			if(plugin->getFilename())
+				m_plugins.push_back(plugin);
+			else
+				SAFE_DELETE(plugin);
+		}
 	}
 
 	// After all other plugins are loaded, we can load the game
@@ -4292,6 +4308,8 @@ void Maratis::logicLoop(void)
 			game->update();
 			return;
 		}
+		else
+			game->updateEditor();
 	}
 
 	// update scene

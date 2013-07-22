@@ -35,6 +35,7 @@
 class M_CORE_EXPORT MScriptContext
 {
 public :
+	typedef int(*CFunction)(void);
 
 	// destructor
 	virtual ~MScriptContext(void){}
@@ -42,6 +43,7 @@ public :
 	// run script
 	virtual void addScript(const char * filename) = 0;
 	virtual void runScript(const char * filename) = 0;
+	virtual void parse(const char* script) = 0;
 
 	// call function
 	virtual bool startCallFunction(const char * name) = 0;
@@ -49,7 +51,10 @@ public :
 	virtual void callFunction(const char * name) = 0;
 
 	// add function
-	virtual void addFunction(const char * name, int (*function)(void)) = 0;
+	virtual void addFunction(const char * name, CFunction function) = 0;
+	// to be able to clone the current context if replacing it at runtime
+	virtual int getNumCFunctions() = 0;
+	virtual CFunction getCFunction(int id, char* name) = 0;
 
 	// variables
 	virtual unsigned int getArgsNumber(void) = 0;

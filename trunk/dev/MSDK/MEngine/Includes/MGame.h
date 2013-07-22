@@ -64,6 +64,10 @@ public:
 
 	virtual void onBeginScene(void);
 	virtual void onEndScene(void);
+
+	// editor only event
+	virtual void publish(void) {}
+	virtual void updateEditor(void) {}
 };
 
 #endif

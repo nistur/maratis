@@ -48,6 +48,8 @@
 #include <MRenderers/MStandardRenderer.h>
 #include <MRenderers/MFixedRenderer.h>
 
+#include "../MScript/MPlayerAPI.h"
+
 
 MaratisPlayer::MaratisPlayer(void):
 m_gamePlugin(NULL),
@@ -156,6 +158,11 @@ void MaratisPlayer::start(void)
 		if(m_renderer == NULL)
 			m_renderer = new MStandardRenderer();
 		engine->setRenderer(m_renderer);
+
+		// add player only script functions
+		{
+			m_script->addFunction("isEditor", Player_IsEditor);
+		}
 	}
 }
 
@@ -233,13 +240,18 @@ void MaratisPlayer::loadGamePlugin(void)
 		if(*iFile == gameFile)
 			continue;
 
+
 		#ifdef WIN32
-			if(iFile->find(".dll") != string::npos)
+			string ext = ".dll";
 		#elif __APPLE__
-			if(iFile->find(".dylib") != string::npos)
+			string ext = ".dylib";
 		#elif linux
-			if(iFile->find(".so") != string::npos)
+			string ext = ".so";
 		#endif
+			int extPos = iFile->find(ext);
+			int expectedExtPos = iFile->length() - ext.length();
+			// check that we've got the extension and it's the end of the filename
+			if(extPos != string::npos && extPos == expectedExtPos)
 			{
 				char pluginPath[256];
 

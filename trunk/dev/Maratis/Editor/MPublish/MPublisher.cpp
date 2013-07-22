@@ -23,6 +23,7 @@
 //========================================================================
 
 #include "MPublisher.h"
+#include <MEngine.h>
 
 MPublisher::MPublisher()
 : m_maxPriorities(10)
@@ -66,4 +67,7 @@ void MPublisher::publish(const char* projName)
 			m_events[prio][ev]->execute(projName);
 		}
 	}
+	// once all standard events have run through,
+	// let the game take care of custom events
+	MEngine::getInstance()->getGame()->publish();
 }

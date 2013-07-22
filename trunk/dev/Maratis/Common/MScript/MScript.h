@@ -54,13 +54,14 @@ private :
 	bool m_isRunning;
 	lua_State * m_state;
 
-	map<string, int (*)(void)> m_functions;
+	map<string, CFunction> m_functions;
 
 public:
 
 	// run script
 	void addScript(const char * filename);
 	void runScript(const char * filename);
+	void parse(const char* script);
 
 	// call function
 	bool startCallFunction(const char* name);
@@ -68,7 +69,9 @@ public:
 	void callFunction(const char * name);
 
 	// add function
-	void addFunction(const char * name, int (*function)(void));
+	void addFunction(const char * name, CFunction function);
+	virtual int getNumCFunctions();
+	virtual CFunction getCFunction(int id, char* name);
 
 	// variables
 	unsigned int getArgsNumber(void);
