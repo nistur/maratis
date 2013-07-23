@@ -2,6 +2,7 @@
 #define __M_EDITOR_SCRIPT_API_H__
 
 int Editor_IsEditor();
+int Editor_GetProjectName();
 
 int Editor_OpenPackage();
 int Editor_ClosePackage();

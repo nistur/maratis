@@ -508,6 +508,7 @@ void Maratis::start(void)
 	// add editor specific script functions
 	{
 		m_script->addFunction("isEditor", Editor_IsEditor);
+		m_script->addFunction("getProjectName", Editor_GetProjectName);
 		
 		m_script->addFunction("openPackage", Editor_OpenPackage);
 		m_script->addFunction("closePackage", Editor_ClosePackage);

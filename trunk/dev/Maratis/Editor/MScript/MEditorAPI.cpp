@@ -3,12 +3,49 @@
 
 #include "MPackageManager.h"
 
+const char* getProjName()
+{
+	static char projName[256] = "";
+	if(strlen(projName) > 0)
+		return projName;
+
+	MSystemContext* system = MEngine::getInstance()->getSystemContext();
+
+	vector<string> files;
+	readDirectory(system->getWorkingDirectory(), &files);
+	for(vector<string>::iterator iFile = files.begin();
+		iFile != files.end();
+		iFile++)
+	{
+		int ext = iFile->find(".mproj");
+		if(ext != string::npos)
+		{
+			sprintf(projName, "%s", iFile->substr(0, ext).c_str());
+			return projName;
+		}
+	}
+	return NULL;
+}
+
 int Editor_IsEditor()
 {
 	MScriptContext* script = MEngine::getInstance()->getScriptContext();
 	// this is running in the editor 
 	script->pushBoolean(true);
 	return 1;
+}
+
+int Editor_GetProjectName()
+{
+	MScriptContext* script = MEngine::getInstance()->getScriptContext();
+
+	const char* projName = getProjName();
+	if(projName)
+	{
+		script->pushString(projName);
+		return 1;
+	}
+	return 0;
 }
 
 int Editor_OpenPackage()
@@ -18,6 +55,12 @@ int Editor_OpenPackage()
 	MPackageManager* packager = MEngine::getInstance()->getPackageManager();
 
 	string filename = "published/";
+
+#ifdef __APPLE__
+	filename += getProjName();
+	filename += ".app/Contents/Resources/";
+#endif
+
 	filename += script->getString(0);
 	char globalFilename[256];
 	getGlobalFilename(globalFilename, system->getWorkingDirectory(), filename.c_str());
